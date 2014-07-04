@@ -1,0 +1,11 @@
+D:\工作文件\工作文件夹\14年\6月份\[14-06-06]乐清海事局\CNVP.Data\bin\Release\CNVP.Data.dll
+D:\工作文件\工作文件夹\14年\6月份\[14-06-06]乐清海事局\CNVP.Data\bin\Release\CNVP.Data.pdb
+D:\工作文件\工作文件夹\14年\6月份\[14-06-06]乐清海事局\CNVP.Data\bin\Release\CNVP.Config.dll
+D:\工作文件\工作文件夹\14年\6月份\[14-06-06]乐清海事局\CNVP.Data\bin\Release\CNVP.Framework.dll
+D:\工作文件\工作文件夹\14年\6月份\[14-06-06]乐清海事局\CNVP.Data\bin\Release\CNVP.Model.dll
+D:\工作文件\工作文件夹\14年\6月份\[14-06-06]乐清海事局\CNVP.Data\bin\Release\CNVP.Config.pdb
+D:\工作文件\工作文件夹\14年\6月份\[14-06-06]乐清海事局\CNVP.Data\bin\Release\CNVP.Framework.pdb
+D:\工作文件\工作文件夹\14年\6月份\[14-06-06]乐清海事局\CNVP.Data\bin\Release\CNVP.Model.pdb
+D:\工作文件\工作文件夹\14年\6月份\[14-06-06]乐清海事局\CNVP.Data\obj\Release\CNVP.Data.csprojResolveAssemblyReference.cache
+D:\工作文件\工作文件夹\14年\6月份\[14-06-06]乐清海事局\CNVP.Data\obj\Release\CNVP.Data.dll
+D:\工作文件\工作文件夹\14年\6月份\[14-06-06]乐清海事局\CNVP.Data\obj\Release\CNVP.Data.pdb
