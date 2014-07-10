@@ -37,18 +37,21 @@
     <div class="main-r">
         <!--加载到datagrid的toolbar上 -->  
         <div id="search-div">
-			从: <input class="easyui-datebox" style="width:100px" />
-			到: <input class="easyui-datebox" style="width:100px" />
+			从: <input class="easyui-datebox" data-options="editable:false" name="sea_start" id="sea_start" style="width:100px" />
+			到: <input class="easyui-datebox" data-options="editable:false" name="sea_end" id="sea_end" style="width:100px" />
 			选项: 
-			<select class="easyui-combobox" panelHeight="auto" style="width:100px">
-				<option value="java">Java</option>
-				<option value="c">C</option>
-				<option value="basic">Basic</option>
-				<option value="perl">Perl</option>
-				<option value="python">Python</option>
+			<select class="easyui-combobox" name="sea_select" id="sea_select" panelHeight="auto" style="width:100px">
+				<option value="">全部</option>
+				<option value="0">进港</option>
+				<option value="1">出港</option>
+				<option value="ShipName">船名</option>
+				<option value="Saillings">航次</option>
+				<option value="Operator">经营人</option>
+				<option value="StartPort">始发港</option>
+				<option value="WorkBerth">作业泊位</option>
 			</select>
-            <input type="text" class="pagination-num" style="width:100px;" />
-			<a href="#" class="easyui-linkbutton" iconCls="icon-search">搜索</a>
+            <input type="text" name="sea_keyword" id="sea_keyword" class="pagination-num" style="width:100px;" />
+			<a href="#" class="easyui-linkbutton" iconCls="icon-search" onclick="dosearch();">搜索</a>
 		</div>
 
         <div id="tb">
@@ -61,7 +64,7 @@
         //return document.body.clientWidth * percent ;
         return $(".main-r").width() * percent ;
     }
-    var tips = ["待审批申报单","已审批申报单", "已退回申报单", "全部申报单列表"];
+    var tips = ["待审批申报单","已审批申报单", "材料补正申报单", "不予备案申报单", "全部申报单列表"];
     var _state = decrypt(encodeURI($.query.get("State")));
     var fields = "Id,Guid,IO,ShipName,Saillings,Operator,StartPort,ArrivedTime,WorkBerth,AppState";
     var flag = true;
@@ -72,7 +75,7 @@
     // var max = Math.ceil(total/options.pageSize);
     //var page = $.query.get("page");
     $('#tb').datagrid({
-                title:'当前位置：申报管理 > ' + tips[_state != "" && _state != "undefined" && _state != "%20" ? _state : 3],
+                title:'当前位置：申报管理 > ' + tips[_state != "" && _state != "undefined" && _state != "%20" ? _state : 4],
                 width: 'auto',
                 height: 'auto',
                 nowrap: false,
@@ -123,7 +126,9 @@
                             } else if (row.AppState == "1") {
                                 return   "已审批";
                             } else if (row.AppState == "2") {
-                                return   "已退回";
+                                return   "材料补正";
+                            } else if (row.AppState == "3") {
+                                return   "不予备案";
                             };
                         }
                     },
@@ -220,6 +225,38 @@
         afterPageText: '页    共 {pages} 页',
         displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录'
     });
-
+    function dosearch() {
+        if (!/^\s*$/.test($("input[name='sea_start']").val())) {
+            if (/^\s*$/.test($("input[name='sea_end']").val())) {
+                alert("请输入结束时间");
+                $("#sea_end").focus();
+                return false;
+            } else {
+                $("#tb").datagrid("load", {
+                    Action: "ApplySearch",
+                    StartTime: $("input[name='sea_start']").val(),
+                    EndTime: $("input[name='sea_end']").val(),
+                    SelectType: $("input[name='sea_select']").val(),
+                    Keyword: $("#sea_keyword").val(),
+                    State: _state,
+                    userId: <%=UserLoginInfo.UserLoginID %>,
+                    easyGrid_Sort: fields,
+                    Time: new Date().getTime()
+                })
+            }
+        } else {
+            $("#tb").datagrid("load", {
+                Action: "ApplySearch",
+                StartTime: $("input[name='sea_start']").val(),
+                EndTime: $("input[name='sea_end']").val(),
+                SelectType: $("input[name='sea_select']").val(),
+                Keyword: $("#sea_keyword").val(),
+                State: _state,
+                userId: <%=UserLoginInfo.UserLoginID %>,
+                easyGrid_Sort: fields,
+                Time: new Date().getTime()
+            })
+        }
+    }
 </script>
 </html>

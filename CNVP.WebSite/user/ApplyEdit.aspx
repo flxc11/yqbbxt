@@ -46,17 +46,21 @@
 				</div>
                 <div class="cnvp-tab-panle">
                     <div class="table-1">
+                         <div class="control-group">
+                             <label for="in-out" class="control-label" style="color: red">审批意见：</label>
+                             <div class="controls controls-inline" style="color: red"><%=spyj %></div>
+                         </div>
                         <div class="control-group">
                             <input type="hidden" name="applyId" value="<%=applyId %>" />
                             <input type="hidden" name="scwId" value="<%=scwId %>" />
                             <input type="hidden" name="applyGuid" value="<%=applyGuid %>" />
                             <input type="hidden" name="appState" value="<%=appState %>" />
                             <input type="hidden" name="appPage" value="<%=appPage %>" />
-                            <label for="in-out" class="control-label">出&nbsp;&nbsp;入&nbsp;&nbsp;港：</label>
+                            <label for="in-out" class="control-label">进&nbsp;&nbsp;出&nbsp;&nbsp;港：</label>
                             <div class="controls controls-inline">
                                 <asp:RadioButtonList ID="IO" runat="server" RepeatDirection="Horizontal" Enabled="false">
+                                    <asp:ListItem Value="0">进港</asp:ListItem>
                                     <asp:ListItem Value="1">出港</asp:ListItem>
-                                    <asp:ListItem Value="0">入港</asp:ListItem>
                                 </asp:RadioButtonList>
                             </div>
                         </div>
@@ -159,6 +163,26 @@
                             </div>
                         </div>
                         <div class="control-group">
+                            <label for="in-out" class="control-label">紧急联系人姓名：</label>
+                            <div class="controls controls-inline">
+                                <asp:TextBox ID="EmergencyName" runat="server" CssClass="app-input easyui-validatebox" data-options="required:true,missingMessage:'请输入紧急联系人姓名'"></asp:TextBox>
+                            </div>
+                            <label for="in-out" class="control-label">紧急联系人电话：</label>
+                            <div class="controls controls-inline">
+                                <asp:TextBox ID="EmergencyTel" runat="server" CssClass="app-input easyui-validatebox" data-options="required:true,missingMessage:'请输入紧急联系人电话'"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="in-out" class="control-label">紧急联系人传真：</label>
+                            <div class="controls controls-inline">
+                                <asp:TextBox ID="EmergencyFax" runat="server" CssClass="app-input easyui-validatebox" data-options="required:true,missingMessage:'请输入紧急联系人传真'"></asp:TextBox>
+                            </div>
+                            <label for="in-out" class="control-label">紧急联系人邮件：</label>
+                            <div class="controls controls-inline">
+                                <asp:TextBox ID="RmergencyEmail" runat="server" CssClass="app-input easyui-validatebox" data-options="required:true,missingMessage:'请输入紧急联系人邮件'"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="control-group">
                             <label for="in-out" class="control-label1">1、<span>适航证书</span> | <a href="javascript:;" class="del-img">删除</a></label>
                             <div class="controls controls-inline">
                                 <input type="file" class="input fl easyui-validatebox" id ="mfile0_0"  name="mfile0_0" required="true" missingMessage="请上传适航证书" novalidate=true  />
@@ -180,20 +204,42 @@
                             </div>
                             <div class="clear1"><img src="<%=mfile0_2 %>" width="160" height="120"  /><a href="<%=mfile0_2 %>" target="_blank">查看大图</a></div>
                         </div>
+                        <%
+                            if (mfile0_3 != "") { 
+                             %>
                         <div class="control-group">
                             <label for="in-out" class="control-label1">4、<span>进/出港申报委托书</span> | <a href="javascript:;" class="del-img">删除</a></label>
                             <div class="controls controls-inline">
-                                <input type="file" class="input fl easyui-validatebox" id ="mfile0_3"  name="mfile0_3" required="true" missingMessage="请上传进/出港申报委托书" novalidate=true />
+                                <input type="file" class="input fl easyui-validatebox" id ="mfile0_3"  name="mfile0_3" />
                             </div>
                             <div class="clear1"><img src="<%=mfile0_3 %>" width="160" height="120"  /><a href="<%=mfile0_3 %>" target="_blank">查看大图</a></div>
                         </div>
+                        <% } %>
+                        <%
+                            if (mfile0_4 != "") { 
+                             %>
                         <div class="control-group">
                             <label for="in-out" class="control-label1">5、<span>保险证书类型</span> | <a href="javascript:;" class="del-img">删除</a></label>
                             <div class="controls controls-inline">
-                                <input type="file" class="input fl easyui-validatebox" id ="mfile0_4"  name="mfile0_4" required="true" missingMessage="请上传保险证书类型" novalidate=true />
+                                <input type="file" class="input fl easyui-validatebox" id ="mfile0_4"  name="mfile0_4" />
                             </div>
                             <div class="clear1"><img src="<%=mfile0_4 %>" width="160" height="120"  /><a href="<%=mfile0_4 %>" target="_blank">查看大图</a></div>
                         </div>
+                        <% } %>
+                        <div class="control-group">
+                            <label for="in-out" class="control-label1">6、<span>其它</span></label>
+                        </div>
+                        <asp:Repeater ID="rptOther" runat="server">
+                            <ItemTemplate>
+                                <div class="control-group">
+                                    <label for="in-out" class="control-label1"><a href="javascript:;" class="del-img">删除</a></label>
+                                    <div class="controls controls-inline">
+                                        <input type="file" class="input fl easyui-validatebox" id ="<%#Eval("SourceType") %>"  name="<%#Eval("SourceType") %>" />
+                                    </div>
+                                    <div class="clear1"><img src="<%#Eval("SourceUrl") %>" width="160" height="120"  /><a href="<%#Eval("SourceUrl") %>" target="_blank">查看大图</a></div>
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
                     </div>
                     <div class="control-group">
                         <a href="javascript:void(0)" class="btn-submit" onclick="submitForm('EditandApply')">修改并提交</a>
@@ -278,21 +324,59 @@
                             <div class="controls controls-inline">
                                 <asp:TextBox ID="ParticularNature" runat="server" CssClass="app-input"></asp:TextBox>
                             </div>
-                            <label for="in-out" class="control-label2">额外证书：</label>
-                            <div class="controls controls-inline">
-                                <asp:CheckBoxList ID="ExatrCertificate" runat="server">
-                                     <asp:ListItem>水份含量和适运水份极限证书</asp:ListItem>
-                                     <asp:ListItem>风化证书</asp:ListItem>
-                                     <asp:ListItem>免除证书</asp:ListItem>
-                                 </asp:CheckBoxList>
-                            </div>
                         </div>
                         <div class="control-group">
-                            <label for="in-out" class="control-label2">额外证书其他说明：</label>
-                            <div class="controls controls-inline">
-                                <asp:TextBox ID="ExatrCertificateDec" runat="server" CssClass="app-input"></asp:TextBox>
-                            </div>
+                            <label for="in-out" class="control-label2">额外证书：</label>
                         </div>
+                        <%
+                            if (scwmfile1 != "")
+                            { 
+                             %>
+                        <div class="control-group">
+                            <label for="in-out" class="control-label1"><span>水份含量和适运水份极限证书</span> | <a href="javascript:;" class="del-img">删除</a></label>
+                            <div class="controls controls-inline">
+                                <input type="file" class="input fl easyui-validatebox" id="scwmfile0_1"  name="scwmfile0_1" />
+                            </div>
+                            <div class="clear1"><img src="<%=scwmfile1 %>" width="160" height="120"  /><a href="<%=scwmfile1 %>" target="_blank">查看大图</a></div>
+                        </div>
+                        <% } %>
+                        <%
+                            if (scwmfile2 != "") { 
+                             %>
+                        <div class="control-group">
+                            <label for="in-out" class="control-label1"><span>安全适运性评估报告</span> | <a href="javascript:;" class="del-img">删除</a></label>
+                            <div class="controls controls-inline">
+                                <input type="file" class="input fl easyui-validatebox" id ="scwmfile0_2"  name="scwmfile0_2" />
+                            </div>
+                            <div class="clear1"><img src="<%=scwmfile2 %>" width="160" height="120"  /><a href="<%=scwmfile2 %>" target="_blank">查看大图</a></div>
+                        </div>
+                        <% } %>
+                        <%
+                            if (scwmfile3 != "")
+                            { 
+                             %>
+                        <div class="control-group">
+                            <label for="in-out" class="control-label1"><span>委托书</span> | <a href="javascript:;" class="del-img">删除</a></label>
+                            <div class="controls controls-inline">
+                                <input type="file" class="input fl easyui-validatebox" id ="scwmfile0_3"  name="scwmfile0_3" />
+                            </div>
+                            <div class="clear1"><img src="<%=scwmfile3 %>" width="160" height="120"  /><a href="<%=scwmfile3 %>" target="_blank">查看大图</a></div>
+                        </div>
+                        <% } %>
+                        <div class="control-group">
+                            <label for="in-out" class="control-label1"><span>其它</span></label>
+                        </div>
+                        <asp:Repeater ID="scwOthers" runat="server">
+                            <ItemTemplate>
+                                <div class="control-group">
+                                    <label for="in-out" class="control-label1"><a href="javascript:;" class="del-img">删除</a></label>
+                                    <div class="controls controls-inline">
+                                        <input type="file" class="input fl easyui-validatebox" id ="<%#Eval("SourceType") %>"  name="<%#Eval("SourceType") %>" />
+                                    </div>
+                                    <div class="clear1"><img src="<%#Eval("SourceUrl") %>" width="160" height="120"  /><a href="<%#Eval("SourceUrl") %>" target="_blank">查看大图</a></div>
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
                     </div>
                 </div>
 			</div>

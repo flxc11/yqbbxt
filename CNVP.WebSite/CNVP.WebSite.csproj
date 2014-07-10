@@ -38,6 +38,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ionic.Zip, Version=1.9.1.5, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\3月份\[14-03-13]在线申请\申请\CNVP.Admin\bin\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=1.2.5.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\3月份\[14-03-13]在线申请\申请\CNVP.Admin\bin\NPOI.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -70,7 +78,9 @@
     <Content Include="bin\CNVP.UI.pdb" />
     <Content Include="bin\CNVP.WebSite.dll" />
     <Content Include="bin\CNVP.WebSite.pdb" />
+    <Content Include="bin\Ionic.Zip.dll" />
     <Content Include="bin\MySql.Data.dll" />
+    <Content Include="bin\NPOI.dll" />
     <Content Include="CNVP.Data.csproj" />
     <Content Include="CNVP.Framework.csproj" />
     <Content Include="control\adminleft.html" />
@@ -101,6 +111,7 @@
     <Content Include="images\iconsquare.jpg" />
     <Content Include="images\imgwelcome.jpg" />
     <Content Include="js\encrypt.js" />
+    <Content Include="js\JqPrintArea.js" />
     <Content Include="js\jQuery.query.js" />
     <Content Include="reg.aspx" />
     <Content Include="UploadFile\20140620\201406201538486747.jpg" />
@@ -313,6 +324,7 @@
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="user\login.aspx" />
+    <Content Include="user\other.aspx" />
     <Content Include="user\reg.aspx" />
     <Content Include="themes\black\accordion.css" />
     <Content Include="themes\black\calendar.css" />
@@ -699,6 +711,13 @@
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="user\other.aspx.cs">
+      <DependentUpon>other.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\other.aspx.designer.cs">
+      <DependentUpon>other.aspx</DependentUpon>
+    </Compile>
     <Compile Include="user\reg.aspx.cs">
       <DependentUpon>reg.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

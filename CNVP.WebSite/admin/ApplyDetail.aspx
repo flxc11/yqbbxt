@@ -248,7 +248,8 @@
                         <asp:RadioButtonList ID="AppState" runat="server" RepeatDirection="Horizontal">
                             <asp:ListItem Value="0">待审批</asp:ListItem>
                             <asp:ListItem Value="1">已审批</asp:ListItem>
-                            <asp:ListItem Value="2">已退回</asp:ListItem>
+                            <asp:ListItem Value="2">材料补正</asp:ListItem>
+                            <asp:ListItem Value="3">不予备案</asp:ListItem>
                         </asp:RadioButtonList>
                     </div>
                 </div>

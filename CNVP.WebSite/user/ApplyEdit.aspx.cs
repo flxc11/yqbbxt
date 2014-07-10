@@ -1,4 +1,5 @@
-﻿using CNVP.Framework.Utils;
+﻿using CNVP.Framework.DataAccess;
+using CNVP.Framework.Utils;
 using CNVP.UI;
 using System;
 using System.Collections;
@@ -12,7 +13,7 @@ namespace CNVP.WebSite.user
 {
     public partial class ApplyEdit : UserPage
     {
-        public string appState, appPage, applyGuid, applyId, scwId, mfile0_0, mfile0_1, mfile0_2, mfile0_3, mfile0_4 = string.Empty;
+        public string appState, appPage, applyGuid, applyId, scwId, mfile0_0, mfile0_1, mfile0_2, mfile0_3, mfile0_4, spyj, scwmfile1, scwmfile2, scwmfile3, scwmfile4 = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
             string Action = Request.Params["Action"];
@@ -57,15 +58,15 @@ namespace CNVP.WebSite.user
                             scw.SetWebControls(this.Page);
                             GoodsGroup.SelectedValue = scw.GoodsGroup;
                             scwId = scw.Id.ToString();
-                            string[] arr = scw.ExatrCertificate.Split(',');
-                            for (int i = 0; i < arr.Length; i++)
-                            {
-                                ListItem li = ExatrCertificate.Items.FindByValue(arr[i]);
-                                if (li != null)
-                                {
-                                    li.Selected = true;
-                                }
-                            }
+                            //string[] arr = scw.ExatrCertificate.Split(',');
+                            //for (int i = 0; i < arr.Length; i++)
+                            //{
+                            //    ListItem li = ExatrCertificate.Items.FindByValue(arr[i]);
+                            //    if (li != null)
+                            //    {
+                            //        li.Selected = true;
+                            //    }
+                            //}
                         }
 
                         //散装货物列表
@@ -80,8 +81,35 @@ namespace CNVP.WebSite.user
                         mfile0_2 = GetImgUrl("mfile0_2", guid);
                         mfile0_3 = GetImgUrl("mfile0_3", guid);
                         mfile0_4 = GetImgUrl("mfile0_4", guid);
+
+                        scwmfile1 = GetImgUrl("scwmfile0_1", guid);
+                        scwmfile2 = GetImgUrl("scwmfile0_2", guid);
+                        scwmfile3 = GetImgUrl("scwmfile0_3", guid);
+
+                        DataTable dt = DataFactory.GetInstance().
+                        ExecuteTable("select * from cnvp_source where appGuid='" + guid + "' and sourcetype like 'mfile0_%' and substring(sourcetype,8,2) > 4");
+                        if (dt != null && dt.Rows.Count > 0)
+                        {
+                            rptOther.DataSource = dt;
+                            rptOther.DataBind();
+                        }
+
+                        DataTable dts = DataFactory.GetInstance().
+                        ExecuteTable("select * from cnvp_source where appGuid='" + guid + "' and sourcetype like 'scwmfile0_%' and substring(sourcetype,11,2) > 3");
+                        if (dts != null && dts.Rows.Count > 0)
+                        {
+                            scwOthers.DataSource = dts;
+                            scwOthers.DataBind();
+                        }
                     }
-                    
+
+                    #region 审批意见
+                    DataTable dts1 = DataFactory.GetInstance().ExecuteTable("select * from CNVP_accredit where AppGuid='" + guid + "'");
+                    if (dts1 != null && dts1.Rows.Count > 0)
+                    {
+                        spyj = dts1.Rows[0]["AppOpinions"].ToString();
+                    }
+                    #endregion
 
                 }
                 #endregion
@@ -117,7 +145,7 @@ namespace CNVP.WebSite.user
             {
                 CNVP.UI.Application _apply = new UI.Application();
                 scw.UpdateModel();
-                scw.ExatrCertificate = _apply.GetCheck(ExatrCertificate, ",");
+                //scw.ExatrCertificate = _apply.GetCheck(ExatrCertificate, ",");
                 scw.GoodsGroup = GoodsGroup.SelectedValue;
                 scw.Id = Convert.ToInt32(scwId);
             }

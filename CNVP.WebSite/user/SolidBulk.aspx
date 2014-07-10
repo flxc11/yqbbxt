@@ -5,25 +5,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>船舶载运固体散装货物申报单</title>
     <style>
 <!--
- /* Font Definitions */
- @font-face
-	{font-family:宋体;
-	panose-1:2 1 6 0 3 1 1 1 1 1;}
-@font-face
-	{font-family:黑体;
-	panose-1:2 1 6 9 6 1 1 1 1 1;}
-@font-face
-	{font-family:"Cambria Math";
-	panose-1:2 4 5 3 5 4 6 3 2 4;}
-@font-face
-	{font-family:"\@黑体";
-	panose-1:2 1 6 9 6 1 1 1 1 1;}
-@font-face
-	{font-family:"\@宋体";
-	panose-1:2 1 6 0 3 1 1 1 1 1;}
+
  /* Style Definitions */
  p.MsoNormal, li.MsoNormal, div.MsoNormal
 	{margin:0cm;
@@ -79,9 +64,11 @@ ul
     margin:0 auto;
 }
 </style>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/JqPrintArea.js"></script>
 </head>
 <body lang=ZH-CN style='text-justify-trim:punctuation'>
-
+    <div id="app_print">
 <div class=WordSection1 style='layout-grid:15.6pt'>
 
 <p class=MsoNormal align=center style='text-align:center;line-height:14.0pt'><b><span
@@ -108,7 +95,7 @@ lang=EN-US style='font-size:14.0pt'>Declaration Form for Solid Bulk Cargoes
 Carried By Ship</span></b></p>
 
 <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
- style='border-collapse:collapse'>
+ style='border-collapse:collapse' align="center">
  <tr>
   <td width=225 valign=top style='width:168.45pt;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal style='line-height:12.0pt'><span style='font-size:9.0pt;
@@ -194,7 +181,7 @@ Carried By Ship</span></b></p>
  </tr>
 </table>
 
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 style='width:750.6pt;border-collapse:collapse;border:none;'>
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 style='width:750.6pt;border-collapse:collapse;border:none;' align="center">
  <tr style='height:28.1pt'>
   <td width=206 colspan=2 style='width:154.25pt;border-top:1.5pt;border-left:
   1.5pt;border-bottom:1.0pt;border-right:1.0pt;border-color:windowtext;
@@ -646,7 +633,7 @@ Carried By Ship</span></b></p>
 </table>
 
 <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
- style='border-collapse:collapse'>
+ style='border-collapse:collapse' align="center">
     <tr>
         <td>
             <p class=MsoNormal style='line-height:12.0pt'><span style='font-size:9.0pt;
@@ -665,6 +652,16 @@ style='font-family:宋体'>中华人民共和国海事局监</span></b></p>
 
 
 </div>
-
+</div>
+    <script>
+        $(function () {
+            $("#biuuu_button").on("click", function () {
+                alert(1);
+                $("#app_print").printArea();
+            });
+        })
+        
+    </script>
+    <div style="text-align: center; margin-top:30px;"><a href="javascript:;" id="biuuu_button">打印申报单</a></div>
 </body>
 </html>

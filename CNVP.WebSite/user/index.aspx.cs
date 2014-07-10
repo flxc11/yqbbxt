@@ -47,7 +47,6 @@ namespace CNVP.WebSite.user
                 CNVP.UI.Application _apply = new UI.Application();
                 scw.UpdateModel();
                 scw.AppGuid = appli.Guid;
-                scw.ExatrCertificate = _apply.GetCheck(ExatrCertificate, ",");
                 scw.CreateTime = DateTime.Now;
             }
 

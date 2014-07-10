@@ -42,10 +42,14 @@
 			<div class="main-form">
 				<div class="table-type">
 					<a href="javascript:;" class="index_tabshover">船舶载运固体散装货物申报单</a>
-					<a href="solidbulk.aspx" target="_blank">打印固体散装货物申报单</a>
+					<%=printApply %>
 				</div>
                 <div class="cnvp-tab-panle">
                     <div class="table-1">
+                        <div class="control-group">
+                             <label for="in-out" class="control-label" style="color: red">审批意见：</label>
+                             <div class="controls controls-inline" style="color: red"><%=spyj %></div>
+                         </div>
                         <div class="control-group">
                             <input type="hidden" name="applyId" value="<%=applyId %>" />
                             <input type="hidden" name="scwId" value="<%=scwId %>" />
@@ -143,20 +147,41 @@
                                 <asp:Label ID="Telphone" runat="server" Text="Label"></asp:Label>
                             </div>
                         </div>
+                        <div class="control-group">
+                            <label for="in-out" class="control-label">紧急联系人姓名：</label>
+                            <div class="controls controls-inline">
+                                <asp:Label ID="EmergencyName" runat="server" Text="&nbsp;"></asp:Label>
+                            </div>
+                            <label for="in-out" class="control-label">紧急联系人电话：</label>
+                            <div class="controls controls-inline">
+                                <asp:Label ID="EmergencyTel" runat="server" Text=" "></asp:Label>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="in-out" class="control-label">紧急联系人传真：</label>
+                            <div class="controls controls-inline">
+                                <asp:Label ID="EmergencyFax" runat="server" Text="&nbsp;"></asp:Label>
+                            </div>
+                            <label for="in-out" class="control-label">紧急联系人邮件：</label>
+                            <div class="controls controls-inline">
+                                <asp:Label ID="RmergencyEmail" runat="server" Text=" "></asp:Label>
+                            </div>
+                        </div>
                         <div class="control-group" style="text-align:left;padding-left:79px;">
                             附件：
                             1、<a href="<%=mfile0_0 %>" target="_blank">适航证书</a>&nbsp;&nbsp;
                             2、<a href="<%=mfile0_1 %>" target="_blank">船舶证书</a>&nbsp;&nbsp;
                             3、<a href="<%=mfile0_2 %>" target="_blank">配载图</a>&nbsp;&nbsp;
-                            4、<a href="<%=mfile0_3 %>" target="_blank">进/出港申报委托书</a>&nbsp;&nbsp;
-                            5、<a href="<%=mfile0_4 %>" target="_blank">保险证书类型</a>
+                            <%=mfile0_3 %>
+                            <%=mfile0_4 %>
+                            6、<a href="other.aspx?AppGuid=<%=applyGuid %>&imgtype=1" target="_blank">其它</a>
                         </div>
                     </div>
                     
                 </div>
                 <div class="table-type">
 					<a href="javascript:;" class="index_tabshover">安全适运申报单</a>
-					<a href="javascript:;">打印安全适运申报单</a>
+					<%=printScw %>
 				</div>
                 <div class="cnvp-tab-panle">
                     <div class="table-1 scf">
@@ -231,16 +256,13 @@
                             <div class="controls controls-inline">
                                 <asp:Label ID="ParticularNature" runat="server"></asp:Label>
                             </div>
-                            <label for="in-out" class="control-label2">额外证书：</label>
-                            <div class="controls controls-inline">
-                                <asp:Label ID="ExatrCertificate" runat="server"></asp:Label>
-                            </div>
                         </div>
-                        <div class="control-group">
-                            <label for="in-out" class="control-label2">额外证书其他说明：</label>
-                            <div class="controls controls-inline">
-                                <asp:Label ID="ExatrCertificateDec" runat="server"></asp:Label>
-                            </div>
+                        <div class="control-group" style="text-align:left;padding-left:79px;">
+                            额外证书：
+                            <%=scwmfile1 %>
+                            <%=scwmfile2 %>
+                            <%=scwmfile3 %>
+                            <%=scwmfile4 %>
                         </div>
                     </div>
                 </div>

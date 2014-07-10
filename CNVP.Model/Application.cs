@@ -319,5 +319,73 @@ namespace CNVP.Model
                 this._UserId = value;
             }
         }
+        private string _EmergencyName = null;
+        /// <summary>  
+        /// 手机  
+        /// </summary>  
+        /// <returns></returns>  
+        [Description("紧急联系人姓名")]
+        public string EmergencyName
+        {
+            get
+            {
+                return this._EmergencyName;
+            }
+            set
+            {
+                this._EmergencyName = value;
+            }
+        }
+        private string _EmergencyTel = null;
+        /// <summary>  
+        /// 手机  
+        /// </summary>  
+        /// <returns></returns>  
+        [Description("紧急联系人电话")]
+        public string EmergencyTel
+        {
+            get
+            {
+                return this._EmergencyTel;
+            }
+            set
+            {
+                this._EmergencyTel = value;
+            }
+        }
+        private string _EmergencyFax = null;
+        /// <summary>  
+        /// 手机  
+        /// </summary>  
+        /// <returns></returns>  
+        [Description("紧急联系人传真")]
+        public string EmergencyFax
+        {
+            get
+            {
+                return this._EmergencyFax;
+            }
+            set
+            {
+                this._EmergencyFax = value;
+            }
+        }
+        private string _RmergencyEmail = null;
+        /// <summary>  
+        /// 手机  
+        /// </summary>  
+        /// <returns></returns>  
+        [Description("紧急联系人邮件")]
+        public string RmergencyEmail
+        {
+            get
+            {
+                return this._RmergencyEmail;
+            }
+            set
+            {
+                this._RmergencyEmail = value;
+            }
+        }
     }
 }

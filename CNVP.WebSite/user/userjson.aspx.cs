@@ -44,6 +44,9 @@ namespace CNVP.WebSite.user
                     break;
                 default:
                     break;
+                case "ApplySearch":
+                    ApplySearch();
+                    break;
             }
         }
 
@@ -223,6 +226,63 @@ namespace CNVP.WebSite.user
             {
                 Response.Write("{\"returnval\":\"0\"}");
             }
+            Response.End();
+        }
+        #endregion
+
+        #region 搜索列表
+        private void ApplySearch()
+        {
+            string pageIndex = Request.Params["Page"];
+            string state = Request.Params["State"];
+            string _startTime = Request.Params["StartTime"];
+            string _endTime = Request.Params["EndTime"];
+            string _selectType = Request.Params["SelectType"];
+            string _keyword = Request.Params["Keyword"];
+            string sqlWhere = string.Empty;
+            string userId = Request.Params["userId"];
+            if (string.IsNullOrEmpty(pageIndex) || !Public.IsNumber(pageIndex))
+            {
+                pageIndex = "1";
+            }
+            string pageSize = Request.Params["Rows"];
+            if (string.IsNullOrEmpty(pageSize) || !Public.IsNumber(pageSize))
+            {
+                pageIndex = "10";
+            }
+            sqlWhere = UIConfig.Prefix + "Application where 1=1 ";
+            if (!string.IsNullOrEmpty(state) && Public.IsNumber(state))
+            {
+                sqlWhere += " and AppState=" + state;
+            }
+            if (!string.IsNullOrEmpty(_startTime) && !string.IsNullOrEmpty(_endTime))
+            {
+                sqlWhere += " and CreateTime between '" + _startTime + "' and '" + _endTime + "'";
+            }
+            if (!string.IsNullOrEmpty(_selectType))
+            {
+                if (_selectType == "1" || _selectType == "0")
+                {
+                    sqlWhere += " and IO=" + _selectType;
+                }
+                else
+                {
+                    sqlWhere += " and " + _selectType + " like '%" + _keyword + "%'";
+                }
+            }
+            if (!string.IsNullOrEmpty(userId) && Public.IsNumber(userId))
+            {
+                sqlWhere += " and UserID=" + userId;
+            }
+            int recordCount = 0;
+            int pageCount = 0;
+            //string strSql = "select  * from " + UIConfig.Prefix + "Application order by createtime desc";
+            DataTable dt = DataFactory.GetInstance().ExecutePage("*",
+                sqlWhere, "Id", "Id desc", Convert.ToInt32(pageIndex), Convert.ToInt32(pageSize), ref recordCount, ref pageCount);
+            string easyGrid_Sort = Request.Params["easyGrid_Sort"];
+
+            string str = JsonHelper.EasyGridTable(dt, easyGrid_Sort, recordCount);
+            Response.Write(str);
             Response.End();
         }
         #endregion

@@ -148,6 +148,51 @@ namespace CNVP.WebSite.user {
         protected global::System.Web.UI.WebControls.TextBox Telphone;
         
         /// <summary>
+        /// EmergencyName 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox EmergencyName;
+        
+        /// <summary>
+        /// EmergencyTel 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox EmergencyTel;
+        
+        /// <summary>
+        /// EmergencyFax 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox EmergencyFax;
+        
+        /// <summary>
+        /// RmergencyEmail 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox RmergencyEmail;
+        
+        /// <summary>
+        /// rptOther 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptOther;
+        
+        /// <summary>
         /// GoodsName 控件。
         /// </summary>
         /// <remarks>
@@ -274,21 +319,12 @@ namespace CNVP.WebSite.user {
         protected global::System.Web.UI.WebControls.TextBox ParticularNature;
         
         /// <summary>
-        /// ExatrCertificate 控件。
+        /// scwOthers 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList ExatrCertificate;
-        
-        /// <summary>
-        /// ExatrCertificateDec 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ExatrCertificateDec;
+        protected global::System.Web.UI.WebControls.Repeater scwOthers;
     }
 }

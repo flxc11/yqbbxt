@@ -132,7 +132,7 @@
                             </div>
                             <label for="in-out" class="control-label">申报员证书编号：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="DecCertificateNo" runat="server" CssClass="app-input"></asp:TextBox>
+                                <asp:TextBox ID="DecCertificateNo" MaxLength="30" runat="server" CssClass="app-input"></asp:TextBox>
                             </div>
                         </div>
                         <div class="control-group">
@@ -143,6 +143,26 @@
                             <label for="in-out" class="control-label">手机：</label>
                             <div class="controls controls-inline">
                                 <asp:TextBox ID="Telphone" runat="server" CssClass="app-input"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="in-out" class="control-label">紧急联系人姓名：</label>
+                            <div class="controls controls-inline">
+                                <asp:TextBox ID="EmergencyName" runat="server" CssClass="app-input easyui-validatebox" data-options="required:true,missingMessage:'请输入紧急联系人姓名'"></asp:TextBox>
+                            </div>
+                            <label for="in-out" class="control-label">紧急联系人电话：</label>
+                            <div class="controls controls-inline">
+                                <asp:TextBox ID="EmergencyTel" runat="server" CssClass="app-input easyui-validatebox" data-options="required:true,missingMessage:'请输入紧急联系人电话'"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="in-out" class="control-label">紧急联系人传真：</label>
+                            <div class="controls controls-inline">
+                                <asp:TextBox ID="EmergencyFax" runat="server" CssClass="app-input easyui-validatebox" data-options="required:true,missingMessage:'请输入紧急联系人传真'"></asp:TextBox>
+                            </div>
+                            <label for="in-out" class="control-label">紧急联系人邮件：</label>
+                            <div class="controls controls-inline">
+                                <asp:TextBox ID="RmergencyEmail" runat="server" CssClass="app-input easyui-validatebox" data-options="required:true,missingMessage:'请输入紧急联系人邮件'"></asp:TextBox>
                             </div>
                         </div>
                         <div class="control-group">
@@ -175,6 +195,12 @@
                                 <input type="file" class="input fl easyui-validatebox" id ="mfile0_4"  name="mfile0_4" />
                             </div>
                         </div>
+                        <div class="control-group">
+                            <label for="in-out" class="control-label1">6、<span>其它</span></label>
+                            <div class="controls controls-inline" id="MyFile0">
+                                <input type="file" class="input fl easyui-validatebox" id ="mfile0_5"  name="mfile0_5" /><input type="button" value="增加" class="fl add1" onclick="addFile('MyFile0')" />
+                            </div>
+                        </div>
                     </div>
                     <div class="control-group">
                             <a href="javascript:void(0)" class="btn-submit" onclick="submitForm()">提交申报</a>
@@ -182,57 +208,57 @@
                     </div>
                 </div>
                 <div class="cnvp-tab-panle cnvp-tabs-hide">
-                    <div class="table-1 scf">
+                    <div class="table-1 scf" id="scFile0">
                         <div class="control-group">
                             <label for="in-out" class="control-label2">散装货物运输名称：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="GoodsName" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入散装货物运输名称'" novalidate=true></asp:TextBox>
+                                <asp:TextBox ID="GoodsName" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入散装货物运输名称'" novalidate=true></asp:TextBox><span class="scwspan1">*</span>
                             </div>
                         </div>
                         <div class="control-group">
                             <label for="in-out" class="control-label2">托运人：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="Shipper" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入托运人'" novalidate=true></asp:TextBox>
+                                <asp:TextBox ID="Shipper" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入托运人'" novalidate=true></asp:TextBox><span class="scwspan1">*</span>
                             </div>
                             <label for="in-out" class="control-label2">运输单证编号：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="TransportDocNo" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入运输单证编号'" novalidate=true></asp:TextBox>
+                                <asp:TextBox ID="TransportDocNo" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入运输单证编号'" novalidate=true></asp:TextBox><span class="scwspan1">*</span>
                             </div>
                         </div>
                         <div class="control-group">
                             <label for="in-out" class="control-label2">收货人：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="Consignee" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入收货人'" novalidate=true></asp:TextBox>
+                                <asp:TextBox ID="Consignee" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入收货人'" novalidate=true></asp:TextBox><span class="scwspan1">*</span>
                             </div>
                             <label for="in-out" class="control-label2">承运人：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="Carrier" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入承运人'" novalidate=true></asp:TextBox>
+                                <asp:TextBox ID="Carrier" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入承运人'" novalidate=true></asp:TextBox><span class="scwspan1">*</span>
                             </div>
                         </div>
                         <div class="control-group">
                             <label for="in-out" class="control-label2">运输工具的名称/方式：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="TransPort" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入运输工具的名称/方式'" novalidate=true></asp:TextBox>
+                                <asp:TextBox ID="TransPort" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入运输工具的名称/方式'" novalidate=true></asp:TextBox><span class="scwspan1">*</span>
                             </div>
                             <label for="in-out" class="control-label2">指南或其他事项：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="Guide" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入指南或其他事项'" novalidate=true></asp:TextBox>
+                                <asp:TextBox ID="Guide" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入指南或其他事项'" novalidate=true></asp:TextBox><span class="scwspan1">*</span>
                             </div>
                         </div>
                         <div class="control-group">
                             <label for="in-out" class="control-label2">出发港口/地点：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="HomePort" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入出发港口/地点'" novalidate=true></asp:TextBox>
+                                <asp:TextBox ID="HomePort" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入出发港口/地点'" novalidate=true></asp:TextBox><span class="scwspan1">*</span>
                             </div>
                             <label for="in-out" class="control-label2">目的港口/地点：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="DestinationPort" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入目的港口/地点'" novalidate=true></asp:TextBox>
+                                <asp:TextBox ID="DestinationPort" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入目的港口/地点'" novalidate=true></asp:TextBox><span class="scwspan1">*</span>
                             </div>
                         </div>
                         <div class="control-group">
                             <label for="in-out" class="control-label2">货物一般性的描述：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="Description" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入货物一般性的描述'" novalidate=true></asp:TextBox>
+                                <asp:TextBox ID="Description" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入货物一般性的描述'" novalidate=true></asp:TextBox><span class="scwspan1">*</span>
                             </div>
                             <label for="in-out" class="control-label2">总重：</label>
                             <div class="controls controls-inline">
@@ -243,8 +269,8 @@
                             <label for="in-out" class="control-label2">货物组别：</label>
                             <div class="controls controls-inline">
                                 <asp:DropDownList ID="GoodsGroup" runat="server" CssClass="select1">
-                                    <asp:ListItem Selected="True">A组</asp:ListItem>
                                     <asp:ListItem>C组</asp:ListItem>
+                                    <asp:ListItem>A组</asp:ListItem>
                                 </asp:DropDownList>
                             </div>
                             <label for="in-out" class="control-label2">适运水分极限：</label>
@@ -257,19 +283,40 @@
                             <div class="controls controls-inline">
                                 <asp:TextBox ID="ParticularNature" runat="server" CssClass="app-input"></asp:TextBox>
                             </div>
+                        </div>
+                        <div class="control-group">
                             <label for="in-out" class="control-label2">额外证书：</label>
-                            <div class="controls controls-inline">
-                                <asp:CheckBoxList ID="ExatrCertificate" runat="server">
-                                     <asp:ListItem>水份含量和适运水份极限证书</asp:ListItem>
-                                     <asp:ListItem>风化证书</asp:ListItem>
-                                     <asp:ListItem>免除证书</asp:ListItem>
-                                 </asp:CheckBoxList>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls-inline">
+                                <label for="in-out" class="control-label1">1、<span>水份含量和适运水份极限证书</span></label>
+                                <div class="controls-inline">
+                                    <input type="file" class="input fl easyui-validatebox" id ="scwmfile0_1"  name="scwmfile0_1" />
+                                </div>
                             </div>
                         </div>
                         <div class="control-group">
-                            <label for="in-out" class="control-label2">额外证书其他说明：</label>
-                            <div class="controls controls-inline">
-                                <asp:TextBox ID="ExatrCertificateDec" runat="server" CssClass="app-input"></asp:TextBox>
+                            <div class="controls-inline">
+                                <label for="in-out" class="control-label1">2、<span>安全适运性评估报告</span></label>
+                                <div class="controls-inline">
+                                    <input type="file" class="input fl easyui-validatebox" id ="scwmfile0_2"  name="scwmfile0_2" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls-inline">
+                                <label for="in-out" class="control-label1">3、<span>委托书</span></label>
+                                <div class="controls-inline">
+                                    <input type="file" class="input fl easyui-validatebox" id ="scwmfile0_3"  name="scwmfile0_3" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls-inline">
+                                <label for="in-out" class="control-label1">4、<span>其它</span></label>
+                                <div class="controls-inline">
+                                    <input type="file" class="input fl easyui-validatebox" id ="scwmfile0_4"  name="scwmfile0_4" /><input type="button" value="增加" class="fl add1" onclick="addFile1('scFile0')" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -283,20 +330,6 @@
 <script>
     $(function() {
         $('.scf input.easyui-validatebox').validatebox('disableValidation');  //让安全适运申报单失效
-            //.focus(function () { $(this).validatebox('enableValidation'); })
-            //.blur(function () { $(this).validatebox('validate') });
-        $(".control-label1 a").on("click", function () {
-            //alert(document.getElementsByTagName('input[type=file]')[0]);
-            //alert($(this).parents("div.control-group").next().children("input").html());
-            //$(this).parents("div.control-group")
-            //.find("input[type='file']")
-            //.val("123");
-            //var objFile = $(this).parents("div.control-group")
-            //.find("input[type='file']");
-            var _id = $(this).data('id');
-            var objFile = document.getElementById(_id);
-            objFile.outerHTML = objFile.outerHTML.replace(/(value=\").+\"/i, "$1\"");
-        })
 
         $("#bulk-add").on("click", function() {
             var add_list = '<tr class="bulkfright"><td height="40" align="center" valign="middle"><input type="text" name="BfGoodsName" class="easyui-validatebox" /></td><td><select name="BfGoodsGroup"><option value="A组">A组</option><option value="C组">C组</option></select></td><td><input type="text" name="Class" class="easyui-validatebox" required="true" /></td><td><input type="text" name="DangerousNo" class="easyui-validatebox" required="true" /></td><td><input type="text" name="BfTotalWeight" class="easyui-validatebox" required="true" /></td><td><input type="text" name="DischargingPort" class="easyui-validatebox" required="true" /></td><td><input type="text" name="Position" class="easyui-validatebox" required="true" /></td><td><input type="text" name="Remark" class="easyui-validatebox" required="true" tipPosition="left" /></td></tr>';
@@ -359,5 +392,42 @@
            $.messager.alert("信息","输入不合法，请检查后再提交！");
         }
     }
+    function addFile(id) {
+        var inputstr = "";
+        var i = 1;
+        var index = id.substring(6);
+        while (true) {
+            if (document.getElementById("mfile" + index + "_" + i) == null) break;
+            else i++;
+        }
+        var inputid = "mfile" + index + "_" + i;
+        var str = "<br /><INPUT type=\"file\" class=\"input fl\" id=\"" + inputid + "\" name=\"" + inputid + "\" /><INPUT id=\"r" + inputid + "\" type=\"button\" class=\"fl add1\" value=\"删除\" onclick=removeFile(\"" + inputid + "\") />";
+        document.getElementById(id).insertAdjacentHTML("beforeEnd", str);
+
+    }
+    function addFile1(id) {
+        var inputstr = "";
+        var i = 1;
+        var index = id.substring(6);
+        while (true) {
+            if (document.getElementById("scwmfile" + index + "_" + i) == null) break;
+            else i++;
+        }
+        var inputid = "scwmfile" + index + "_" + i;
+        var str = "<div class='control-group'><div class='controls-inline'><label for='in-out' class='control-label1'>&nbsp;</label><div class='controls-inline'><input type=\"file\" class=\"input fl\" id=\"" + inputid + "\" name=\"" + inputid + "\" /><input id=\"r" + inputid + "\" type=\"button\" class=\"fl add1\" value=\"删除\" onclick=removeFile(\"" + inputid + "\") /></div></div></div>";
+        document.getElementById(id).insertAdjacentHTML("beforeEnd", str);
+
+    }
+    function removeFile(id) {
+        var obj = document.getElementById(id);
+        var obj1 = document.getElementById("r" + id);
+        if (obj != null && obj1 != null) {
+            //obj.removeNode(true);
+            //obj1.removeNode(true);
+            obj.parentNode.removeChild(obj);
+            obj1.parentNode.removeChild(obj1);
+        }
+    }
+
 </script>
 </html>
