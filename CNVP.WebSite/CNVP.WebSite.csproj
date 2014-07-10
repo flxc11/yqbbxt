@@ -60,6 +60,7 @@
     <Content Include="admin\adminjson.aspx" />
     <Content Include="admin\ApplyDetail.aspx" />
     <Content Include="admin\ApplyList.aspx" />
+    <Content Include="admin\Export.aspx" />
     <Content Include="admin\login.aspx" />
     <Content Include="admin\ManagerAdd.aspx" />
     <Content Include="admin\ManagerList.aspx" />
@@ -618,6 +619,13 @@
     </Compile>
     <Compile Include="admin\ApplyList.aspx.designer.cs">
       <DependentUpon>ApplyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Export.aspx.cs">
+      <DependentUpon>Export.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Export.aspx.designer.cs">
+      <DependentUpon>Export.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

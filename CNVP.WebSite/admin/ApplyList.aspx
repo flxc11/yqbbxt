@@ -202,30 +202,7 @@
             text: '导出',
             iconCls: 'icon-large-smartart',
             handler: function () {
-                $.ajax({
-                    type: "POST",
-                    url: "adminjson.aspx?Time=" + new Date().getTime(),
-                    data: {
-                        action: "Export",
-                        StartTime: $("input[name='sea_start']").val(),
-                        EndTime: $("input[name='sea_end']").val(),
-                        SelectType: $("input[name='sea_select']").val(),
-                        Keyword: $("#sea_keyword").val(),
-                        State: _state
-                    },
-                    dataType: "json",
-                    cache: false,
-                    success: function (msg) {
-                        if (msg.result == "1") {
-                            $.messager.alert('信息窗口', '删除成功!', 'info', function () {
-                                //重新加载当前页
-                                $('#tb').datagrid('reload');
-                            });
-                        } else {
-                            $.messager.alert('信息窗口', '删除失败!', 'info');
-                        }
-                    }
-                });
+                window.open("Export.aspx?action=Export&StartTime=" + $("input[name='sea_start']").val() + "&EndTime=" + $("input[name='sea_end']").val() + "&SelectType=" + $("input[name='sea_select']").val() + "&Keyword=" + $("#sea_keyword").val() + "&State=" + _state);
             }
         },
         '-',

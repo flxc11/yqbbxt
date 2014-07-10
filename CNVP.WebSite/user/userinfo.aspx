@@ -283,25 +283,25 @@
 			    <div class="control-group">
 			      <label for="TrueName" class="control-label">真实姓名：</label>
 			      <div class="controls controls-inline">
-			        <asp:TextBox ID="TrueName" CssClass="textbox" runat="server" ReadOnly="true"></asp:TextBox>
+			        <asp:TextBox ID="TrueName" CssClass="textbox" runat="server"></asp:TextBox>
 			      </div>
 			    </div>
 			    <div class="control-group">
 			      <label for="UserTel" class="control-label">联系电话：</label>
 			      <div class="controls controls-inline">
-			        <asp:TextBox ID="UserTel" CssClass="textbox" runat="server" ReadOnly="true"></asp:TextBox>
+			        <asp:TextBox ID="UserTel" CssClass="textbox" runat="server"></asp:TextBox>
 			      </div>
 			    </div>
 			    <div class="control-group">
 			      <label for="UserEmail" class="control-label">邮箱地址：</label>
 			      <div class="controls controls-inline">
-			        <asp:TextBox ID="UserEmail" CssClass="textbox" runat="server" ReadOnly="true"></asp:TextBox>
+			        <asp:TextBox ID="UserEmail" CssClass="textbox" runat="server"></asp:TextBox>
 			      </div>
 			    </div>
 			    <div class="control-group">
 			      <label for="UserUnit" class="control-label">单位名称：</label>
 			      <div class="controls controls-inline">
-			        <asp:TextBox ID="UserUnit" CssClass="textbox" runat="server" ReadOnly="true"></asp:TextBox>
+			        <asp:TextBox ID="UserUnit" CssClass="textbox" runat="server"></asp:TextBox>
 			      </div>
 			    </div>
     	</div>

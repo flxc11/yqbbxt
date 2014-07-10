@@ -22,15 +22,6 @@ namespace CNVP.WebSite.user {
         protected global::System.Web.UI.HtmlControls.HtmlForm ff;
         
         /// <summary>
-        /// Form1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
-        
-        /// <summary>
         /// UserName 控件。
         /// </summary>
         /// <remarks>
@@ -38,15 +29,6 @@ namespace CNVP.WebSite.user {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox UserName;
-        
-        /// <summary>
-        /// UserPass 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UserPass;
         
         /// <summary>
         /// TrueName 控件。
