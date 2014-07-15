@@ -251,7 +251,7 @@
     </style>
 </head>
 <body>
-    <form id="ff" name="ff" action="?Action=EditApply" runat="server" enctype="multipart/form-data">
+    <form id="ff" name="ff" runat="server" action="?action=EditUser" onsubmit="return checkform()">
     <div class="wrap-header">
     	<div class="header">
     		<div class="lg-info">
@@ -292,6 +292,12 @@
 			        <asp:TextBox ID="UserTel" CssClass="textbox" runat="server"></asp:TextBox>
 			      </div>
 			    </div>
+                <div class="control-group">
+			      <label for="UserTel" class="control-label">申报员证书编号：</label>
+			      <div class="controls controls-inline">
+			        <asp:TextBox ID="UserCertificateNo" CssClass="textbox" runat="server"></asp:TextBox>
+			      </div>
+			    </div>
 			    <div class="control-group">
 			      <label for="UserEmail" class="control-label">邮箱地址：</label>
 			      <div class="controls controls-inline">
@@ -304,10 +310,50 @@
 			        <asp:TextBox ID="UserUnit" CssClass="textbox" runat="server"></asp:TextBox>
 			      </div>
 			    </div>
-    	</div>
+                <div class="control-group">
+			      <label for="UserUnit" class="control-label">新密码：</label>
+			      <div class="controls controls-inline">
+			        <asp:TextBox ID="UserPass1" CssClass="textbox" runat="server" TextMode="Password"></asp:TextBox>
+			      </div>
+			    </div>
+                <div class="control-group">
+			      <label for="UserUnit" class="control-label">再次输入新密码：</label>
+			      <div class="controls controls-inline">
+			        <asp:TextBox ID="UserPass2" CssClass="textbox" runat="server" TextMode="Password"></asp:TextBox>
+			      </div>
+			    </div>
+                <div class="control-group" style="padding-left: 122px;">
+			      	<input type="submit" value="修 改" />
+			    </div>
+    	    </div>
 		</div>
 	</div>
     
     </form>
 </body>
+<script>
+    function checkform() {
+        var rslt = false;
+        if (/^\s*$/.test($("#TrueName").val())) {
+            alert("真实姓名不能为空");
+            $("#TrueName").focus();
+            return false;
+        } else if (/^\s*$/.test($("#UserTel").val())) {
+            alert("联系电话不能为空");
+            $("#UserTel").focus();
+            return false;
+        } else if (!/^\s*$/.test($("#UserPass1").val())) {
+            if ($("#UserPass1").val() != $("#UserPass2").val()) {
+                alert("两次输入的密码不一致");
+                $("#UserPass2").focus();
+                return false;
+            } else {
+                rslt = true;
+            }
+        } else {
+            rslt = true;
+        }
+        return rslt;
+    }
+</script>
 </html>

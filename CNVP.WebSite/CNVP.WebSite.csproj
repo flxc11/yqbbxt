@@ -115,6 +115,10 @@
     <Content Include="js\JqPrintArea.js" />
     <Content Include="js\jQuery.query.js" />
     <Content Include="reg.aspx" />
+    <Content Include="Template\SolidBulk - Copy.htm" />
+    <Content Include="Template\SolidBulk\filelist.xml" />
+    <Content Include="Template\SolidBulk\header.htm" />
+    <Content Include="Template\SolidBulk.htm" />
     <Content Include="UploadFile\20140620\201406201538486747.jpg" />
     <Content Include="UploadFile\20140620\201406201538488058.png" />
     <Content Include="UploadFile\20140620\201406201538489080.png" />

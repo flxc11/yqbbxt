@@ -280,9 +280,9 @@
     		<form name="ff" method="post" id="ff" class="form-horizontal" runat="server">
 	    		<fieldset>
 			    <div class="control-group">
-			      <label for="email" class="control-label">登陆账号：</label>
+			      <label for="email" class="control-label">登录账号：</label>
 			      <div class="controls controls-inline">
-                      <asp:TextBox ID="UserName" CssClass="easyui-validatebox textbox" runat="server" data-options="required:true,missingMessage:'请最少输入5个数字和字母组合'" validType="Composite_validation['^[A-Za-z0-9]{5,15}$','用户名不合法（最少输入5个数字和字母）','该用户名已存在！']" ></asp:TextBox>
+                      <asp:TextBox ID="UserName" CssClass="easyui-validatebox textbox" runat="server" data-options="required:true,missingMessage:'请最少输入5个数字和字母组合或者2-6个汉字'" validType="Composite_validation[/^[\u4E00-\u9FA5]{2,6}$|^[A-Za-z0-9]{5,15}$/,'用户名不合法（最少输入5个数字和字母）','该用户名已存在！']" ></asp:TextBox>
 			      </div>
 			    </div>
 			    <div class="control-group">
@@ -309,16 +309,22 @@
 			        <asp:TextBox ID="UserTel" CssClass="easyui-validatebox textbox" runat="server" data-options="required:true,missingMessage:'请输入联系电话'" validType="telphone"></asp:TextBox>
 			      </div>
 			    </div>
+                <div class="control-group">
+			      <label for="UserTel" class="control-label">申报员证书编号：</label>
+			      <div class="controls controls-inline">
+			        <asp:TextBox ID="UserCertificateNo" CssClass="easyui-validatebox textbox" runat="server" ></asp:TextBox>
+			      </div>
+			    </div>
 			    <div class="control-group">
 			      <label for="UserEmail" class="control-label">邮箱地址：</label>
 			      <div class="controls controls-inline">
-			        <asp:TextBox ID="UserEmail" CssClass="easyui-validatebox textbox" runat="server" data-options="required:true,missingMessage:'请输入邮箱地址',validType:'email'"></asp:TextBox>
+			        <asp:TextBox ID="UserEmail" CssClass="easyui-validatebox textbox" runat="server"></asp:TextBox>
 			      </div>
 			    </div>
 			    <div class="control-group">
 			      <label for="UserUnit" class="control-label">单位名称：</label>
 			      <div class="controls controls-inline">
-			        <asp:TextBox ID="UserUnit" CssClass="easyui-validatebox textbox" runat="server" data-options="required:true,missingMessage:'请输入单位名称'"></asp:TextBox>
+			        <asp:TextBox ID="UserUnit" CssClass="easyui-validatebox textbox" runat="server"></asp:TextBox>
 			      </div>
 			    </div>
 			    <div class="control-group" style="padding-left: 222px;">
@@ -334,14 +340,15 @@
 	$.extend($.fn.validatebox.defaults.rules, {
 		Composite_validation: {  //验证用户名是否存在
 			validator: function (value, param) {
-	            var M_reg = new RegExp(param[0]);
+			    var M_reg = new RegExp(param[0]);
+			    console.log(M_reg);
 	            value = value.toLowerCase();
 	            if (!M_reg.test(value)) {
 	            	$.fn.validatebox.defaults.rules.Composite_validation.message = param[1];
 	            	return false;
 	            };
 	            len = value.length;
-	            if (len >=5) {
+	            if (len >=2) {
 	            	 var m_result = $.ajax({
                         type: "post",
                         dataType: "type",

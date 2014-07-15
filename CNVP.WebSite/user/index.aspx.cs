@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using CNVP.Framework.DataAccess;
 
 namespace CNVP.WebSite.user
 {
@@ -13,8 +14,14 @@ namespace CNVP.WebSite.user
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string Action = Request.Params["Action"];
-            switch (Action)
+            if (!IsPostBack)
+            {
+                Model.User user = Model.User.Instance.GetModelById(UserLoginInfo.UserLoginID);
+                Declarer.Text = user.TrueName;
+                DecCertificateNo.Text = user.UserCertificateNo;
+            }
+            string action = Request.Params["Action"];
+            switch (action)
             {
                 case "Application":
                     Application();

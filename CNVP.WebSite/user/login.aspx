@@ -268,14 +268,14 @@ select:focus:required:invalid:focus {
 			      <label for="email" class="control-label">登录账号：</label>
 			      <div class="controls controls-inline">
 			        <input type="text" id="UserName" name="UserName" />
-			        <span class="help-inline">请输入登陆账号！</span>
+			        <span class="help-inline">请输入登录账号！</span>
 			      </div>
 			    </div>
 			    <div class="control-group">
 			      <label for="password" class="control-label">登录密码：</label>
 			      <div class="controls controls-inline">
 			        <input type="password" id="password" name="password" />
-			        <span class="help-inline">请输入登陆密码</span>
+			        <span class="help-inline">请输入登录密码</span>
 			      </div>
 			      
 			    </div>

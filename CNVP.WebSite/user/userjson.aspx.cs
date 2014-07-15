@@ -80,7 +80,9 @@ namespace CNVP.WebSite.user
             }
             int recordCount = 0;
             int pageCount = 0;
+
             //string strSql = "select  * from " + UIConfig.Prefix + "Application order by createtime desc";
+
             DataTable dt = DataFactory.GetInstance().ExecutePage("*",
                 sqlWhere, "Id", "Id desc", Convert.ToInt32(pageIndex), Convert.ToInt32(pageSize), ref recordCount, ref pageCount);
             string easyGrid_Sort = Request.Params["easyGrid_Sort"];
@@ -276,7 +278,9 @@ namespace CNVP.WebSite.user
             }
             int recordCount = 0;
             int pageCount = 0;
+
             //string strSql = "select  * from " + UIConfig.Prefix + "Application order by createtime desc";
+
             DataTable dt = DataFactory.GetInstance().ExecutePage("*",
                 sqlWhere, "Id", "Id desc", Convert.ToInt32(pageIndex), Convert.ToInt32(pageSize), ref recordCount, ref pageCount);
             string easyGrid_Sort = Request.Params["easyGrid_Sort"];
