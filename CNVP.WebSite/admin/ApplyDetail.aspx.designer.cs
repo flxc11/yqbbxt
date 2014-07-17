@@ -139,6 +139,24 @@ namespace CNVP.WebSite.admin {
         protected global::System.Web.UI.WebControls.Label Telphone;
         
         /// <summary>
+        /// AppOpinions 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox AppOpinions;
+        
+        /// <summary>
+        /// Panel1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel1;
+        
+        /// <summary>
         /// GoodsName 控件。
         /// </summary>
         /// <remarks>
@@ -283,6 +301,15 @@ namespace CNVP.WebSite.admin {
         protected global::System.Web.UI.WebControls.Label ExatrCertificateDec;
         
         /// <summary>
+        /// ScwOpinions 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ScwOpinions;
+        
+        /// <summary>
         /// AppState 控件。
         /// </summary>
         /// <remarks>
@@ -290,14 +317,5 @@ namespace CNVP.WebSite.admin {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList AppState;
-        
-        /// <summary>
-        /// AppOpinions 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AppOpinions;
     }
 }

@@ -153,6 +153,7 @@
                     iconCls:'icon-add',
                     handler:function(){
                         window.location.href = 'index.aspx';
+                        return false;
                     }
                 },'-',{
                     id:'btndelete',
@@ -172,41 +173,41 @@
                                 ids.push(rows[i].Guid);
                                }
                                idsstr = ids.join(',');
-                              if(cand){
-                                  $.messager.confirm('删除窗口', '注意：删除时会连同安全适运单一起删除,你确定要删除吗?', function(r){
-                                    if (r){
-                                        //--s-执行删除操作
-                                        $.ajax({
-                                           type: "POST",
-                                           url: "userjson.aspx",
-                                           data: {
-                                                action: "Delete",
-                                                Guid: idsstr,
-                                                Time: new Date().getTime()
-                                           },
-                                           dataType:"json",
-                                           cache:false,
-                                           success: function(msg){
-                                               if(msg.result == "1"){
-                                                    $.messager.alert('信息窗口','删除成功!','info', function () {
-                                                        //重新加载当前页
-                                                            $('#tb').datagrid('reload');
-                                                        });
-                                               }else{
-                                                    $.messager.alert('信息窗口','删除失败!','info');
-                                               }
-                                           }
+                              if(cand) {
+                                  $.messager.confirm('删除窗口', '注意：删除时会连同安全适运单一起删除,你确定要删除吗?', function(r) {
+                                      if (r) {
+                                          //--s-执行删除操作
+                                          $.ajax({
+                                              type: "POST",
+                                              url: "userjson.aspx",
+                                              data: {
+                                                  action: "Delete",
+                                                  Guid: idsstr,
+                                                  Time: new Date().getTime()
+                                              },
+                                              dataType: "json",
+                                              cache: false,
+                                              success: function(msg) {
+                                                  if (msg.result == "1") {
+                                                      $.messager.alert('信息窗口', '删除成功!', 'info',                                      function() {
+                                                          //重新加载当前页
+                                                          $('#tb').datagrid('reload');
+                                                      });
+                                                  } else {
+                                                      $.messager.alert('信息窗口', '删除失败!', 'info');
+                                                  }
+                                              }
                                           });
-                                        //--e-执行删除操作
-                                    }
-                                })
+                                          //--e-执行删除操作
+                                      }
+                                  });
                               }else{
                                $.messager.alert('信息窗口','你选择的数据中有ID为0的数据，此数据为系统数据，不能删除!','info');
                               }
                             }
                         //---
                     }
-                },'-',
+                }
                 ],
                 onLoadSuccess: function() {
                     var grid = $(".datagrid-toolbar"); //datagrid

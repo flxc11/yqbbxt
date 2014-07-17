@@ -329,7 +329,7 @@
 </body>
 <script>
     $(function() {
-        $('.scf input.easyui-validatebox').validatebox('disableValidation');  //让安全适运申报单失效
+        $('.scf input.easyui-validatebox').validatebox('disableValidation'); //让安全适运申报单失效
 
         $("#bulk-add").on("click", function() {
             var add_list = '<tr class="bulkfright"><td height="40" align="center" valign="middle"><input type="text" name="BfGoodsName" class="easyui-validatebox" /></td><td><select name="BfGoodsGroup"><option value="A组">A组</option><option value="C组">C组</option></select></td><td><input type="text" name="Class" class="easyui-validatebox" required="true" /></td><td><input type="text" name="DangerousNo" class="easyui-validatebox" required="true" /></td><td><input type="text" name="BfTotalWeight" class="easyui-validatebox" required="true" /></td><td><input type="text" name="DischargingPort" class="easyui-validatebox" required="true" /></td><td><input type="text" name="Position" class="easyui-validatebox" required="true" /></td><td><input type="text" name="Remark" class="easyui-validatebox" required="true" tipPosition="left" /></td></tr>';
@@ -337,31 +337,31 @@
             $(".bulkfright input[type='text']").validatebox({
                 required: true,
                 validType: 'Character'
-            })
+            });
         });
         $("#bulk-subtraction").on("click", function() {
             if ($(".bulkfright").length > 1) {
                 $(".bulkfright").last().remove();
             };
-        })
-        $("#IO").on("click", function() {
+        });
+        $("input[type='radio'][name='IO']").on("click", function() {
             if ($("input[type='radio'][name='IO']:checked").val() == "1") {
                 $("#scf-a").css("display", "inline-block");
-                $('.scf input.easyui-validatebox').validatebox('enableValidation');  //激活安全适运申报单验证
+                $('.scf input.easyui-validatebox').validatebox('enableValidation'); //激活安全适运申报单验证
             } else {
                 $("#scf-a").css("display", "none");
                 $('.scf input.easyui-validatebox').validatebox('disableValidation');
             };
         });
-    })
+    });
     $.extend($.fn.validatebox.defaults.rules, {
         Character: {
-            validator: function (value) {
-                    return !/\,/i.test(value);
-                },
-                message: '内容中不能包含逗号'
+            validator: function(value) {
+                return !/\,/i.test(value);
+            },
+            message: '内容中不能包含逗号'
         }
-    })
+    });
     function submitForm(){
         var rslt1 = /^\s*$/.test($("#Declarer").val());
         var rslt2 = /^\s*$/.test($("#Ship").val());

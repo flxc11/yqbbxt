@@ -204,8 +204,7 @@
             handler: function () {
                 window.open("Export.aspx?action=Export&StartTime=" + $("input[name='sea_start']").val() + "&EndTime=" + $("input[name='sea_end']").val() + "&SelectType=" + $("input[name='sea_select']").val() + "&Keyword=" + $("#sea_keyword").val() + "&State=" + _state);
             }
-        },
-        '-',
+        }
         ],
         onLoadSuccess: function () {
             var grid = $(".datagrid-toolbar"); //datagrid

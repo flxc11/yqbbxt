@@ -251,7 +251,7 @@
     </style>
 </head>
 <body>
-    <form id="ff" name="ff" runat="server" action="?action=EditUser" onsubmit="return checkform()">
+    <form id="ff" name="ff" runat="server" onsubmit="return checkform()">
     <div class="wrap-header">
     	<div class="header">
     		<div class="lg-info">
@@ -323,7 +323,7 @@
 			      </div>
 			    </div>
                 <div class="control-group" style="padding-left: 122px;">
-			      	<input type="submit" value="修 改" />
+                    <asp:Button ID="Button1" runat="server" Text="修 改" OnClick="Button1_Click" />
 			    </div>
     	    </div>
 		</div>
@@ -353,7 +353,6 @@
         } else {
             rslt = true;
         }
-        return rslt;
     }
 </script>
 </html>

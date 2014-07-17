@@ -11,7 +11,7 @@ namespace CNVP.WebSite.admin
 {
     public partial class ApplyDetail : AdminPage
     {
-        public string _appState, appPage, applyGuid, mfile0_0, mfile0_1, mfile0_2, mfile0_3, mfile0_4, strIO = string.Empty;
+        public string _appState, appPage, applyGuid, mfile0_0, mfile0_1, mfile0_2, mfile0_3, mfile0_4, scwmfile1, scwmfile2, scwmfile3, scwmfile4, strIO = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
             string Action = Request.Params["Action"];
@@ -42,7 +42,8 @@ namespace CNVP.WebSite.admin
                     }
                     else
                     {
-                        strIO = "入港";
+                        strIO = "进港";
+                        Panel1.Visible = false;
                     }
                     AppState.SelectedValue = appli.AppState.ToString();
                     //安全适运单
@@ -52,22 +53,51 @@ namespace CNVP.WebSite.admin
                     scw.SetWebControls(this.Page);
 
                     //散装货物列表
+
                     Model.BulkFreight bulk = new Model.BulkFreight();
                     IList list = bulk.GetAllList(" and AppGuid='" + guid + "'", "Id");
                     rptBulk.DataSource = list;
                     rptBulk.DataBind();
 
                     //图片附件
+
                     CNVP.UI.FileUpload _fuplo = new UI.FileUpload();
                     mfile0_0 = _fuplo.GetImgUrl("mfile0_0", guid);
                     mfile0_1 = _fuplo.GetImgUrl("mfile0_1", guid);
                     mfile0_2 = _fuplo.GetImgUrl("mfile0_2", guid);
-                    mfile0_3 = _fuplo.GetImgUrl("mfile0_3", guid);
-                    mfile0_4 = _fuplo.GetImgUrl("mfile0_4", guid);
+                    scwmfile2 = _fuplo.GetImgUrl("scwmfile0_2", guid);
+                    scwmfile3 = _fuplo.GetImgUrl("scwmfile0_3", guid);
+                    scwmfile4 = _fuplo.GetImgUrl("scwmfile0_4", guid);
+                    if (_fuplo.GetImgUrl("mfile0_3", guid) != "")
+                    {
+                        mfile0_3 = "4、<a href=\"" + _fuplo.GetImgUrl("mfile0_3", guid) + "\" target=\"_blank\">进/出港申报委托书</a>&nbsp;&nbsp;";
+                    }
+                    if (_fuplo.GetImgUrl("mfile0_3", guid) != "")
+                    {
+                        mfile0_4 = "5、<a href=\"" + _fuplo.GetImgUrl("mfile0_4", guid) + "\" target=\"_blank\">保险证书类型</a>&nbsp;&nbsp;";
+                    }
+                    if (_fuplo.GetImgUrl("scwmfile0_1", guid) != "")
+                    {
+                        scwmfile1 = "<a href=\"" + _fuplo.GetImgUrl("scwmfile0_1", guid) + "\" target=\"_blank\">水份含量和适运水份极限证书</a>&nbsp;&nbsp;";
+                    }
+                    if (_fuplo.GetImgUrl("scwmfile0_2", guid) != "")
+                    {
+                        scwmfile2 = "<a href=\"" + _fuplo.GetImgUrl("scwmfile0_1", guid) + "\" target=\"_blank\">安全适运性评估报告</a>&nbsp;&nbsp;";
+                    }
+                    if (_fuplo.GetImgUrl("scwmfile0_3", guid) != "")
+                    {
+                        scwmfile3 = "<a href=\"" + _fuplo.GetImgUrl("scwmfile0_3", guid) + "\" target=\"_blank\">委托书</a>&nbsp;&nbsp;";
+                    }
+                    if (_fuplo.GetImgUrl("scwmfile0_4", guid) != "")
+                    {
+                        scwmfile4 = "<a href=\"other.aspx?AppGuid=" + applyGuid + "\" target=\"_blank\">其它</a>";
+                    }
 
                     //审批意见信息
+
                     Model.Accredit accredit = Model.Accredit.Instance.GetModelById(ht);
                     AppOpinions.Text = accredit.AppOpinions;
+                    ScwOpinions.Text = accredit.ScwOpinions;
 
                 }
                 #endregion
@@ -98,8 +128,7 @@ namespace CNVP.WebSite.admin
             CNVP.UI.Application _apply = new Application();
             if (_apply.IsOpinionExist(guid))
             {
-                accredit.Update("AppOpinions='" + AppOpinions.Text + "'", " and AppGuid='" +
-                    guid + "'");
+                accredit.Update("AppOpinions='" + AppOpinions.Text + "', ScwOpinions='" + ScwOpinions.Text + "'"," and AppGuid='" + guid + "'");
             }
             else
             {
@@ -108,10 +137,11 @@ namespace CNVP.WebSite.admin
                 accredit.AppGuid = guid;
                 accredit.Guid = Public.GetGuID;
                 accredit.AppOpinions = AppOpinions.Text;
+                accredit.ScwOpinions = ScwOpinions.Text;
                 accredit.Insert(accredit);
             }
             
-            MessageBox.ShowMessage("审批申报成功！", "ApplyList.aspx?State=" + _appState + "&page=" + appPage);
+            MessageBox.ShowMessage("审批成功！", "ApplyList.aspx?State=" + _appState + "&page=" + appPage);
         }
         #endregion
     }

@@ -21,7 +21,10 @@ namespace CNVP.WebSite.user
                 string content = FileUtils.ReadFile(Server.MapPath("~/Template/SolidBulk.htm"));
                 Hashtable ht = new Hashtable();
                 ht.Add("Guid", AppGuid);
+                Hashtable ht1 = new Hashtable();
+                ht1.Add("AppGuid", AppGuid);
                 Model.Application apply = Model.Application.Instance.GetModelById(ht);
+                Model.Accredit accredit = Model.Accredit.Instance.GetModelById(ht1);
                 content = content.Replace("{#ShipName}", GetStr(apply.ShipName))
                     .Replace("{#Saillings}", GetStr(apply.Saillings))
                     .Replace("{#IO0}", apply.IO.ToString() == "0" ? "□" : "☑")
@@ -53,7 +56,13 @@ namespace CNVP.WebSite.user
                 }
                 content = content.Replace("{#BulkList}", bulkList);
 
+                //审批意见
 
+                if (accredit != null)
+                {
+                    content = content.Replace("{#spyj}", accredit.AppOpinions);
+                    content = content.Replace("{#spsj}", DateTime.Now.ToString("yyyy-MM-dd"));
+                }
                 Response.Write(content);
             }
             

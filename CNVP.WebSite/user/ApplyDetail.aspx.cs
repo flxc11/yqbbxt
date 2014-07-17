@@ -12,7 +12,7 @@ namespace CNVP.WebSite.user
 {
     public partial class ApplyDetail : UserPage
     {
-        public string applyGuid, applyId, scwId, mfile0_0, mfile0_1, mfile0_2, mfile0_3, mfile0_4, scwmfile1, scwmfile2, scwmfile3, scwmfile4, strIO, spyj, printApply, printScw = string.Empty;
+        public string applyGuid, applyId, scwId, mfile0_0, mfile0_1, mfile0_2, mfile0_3, mfile0_4, scwmfile1, scwmfile2, scwmfile3, scwmfile4, strIO, spyj,spyj1, printApply, printScw, printNotice = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -34,12 +34,14 @@ namespace CNVP.WebSite.user
                     }
                     else
                     {
-                        strIO = "入港";
+                        strIO = "进港";
+                        Panel1.Visible = false;
                     }
                     if (appli.AppState == 1)
                     {
                         printApply = "<a href=\"solidbulk.aspx?AppGuid=" + guid + "\" target=\"_blank\">打印固体散装货物申报单</a>";
                         printScw = "<a href=\"scwprint.aspx?AppGuid=" + guid + "\" target=\"_blank\">打印安全适运申报单</a>";
+                        printNotice = "<a href=\"Notice.aspx?AppGuid=" + guid + "\" class=\"btn-submit\" target=\"_blank\">打印审批通知单</a>";
                     }
                     applyId = appli.Id.ToString();
                     //安全适运单
@@ -93,6 +95,7 @@ namespace CNVP.WebSite.user
                     if (dts1 != null && dts1.Rows.Count > 0)
                     {
                         spyj = dts1.Rows[0]["AppOpinions"].ToString();
+                        spyj1 = dts1.Rows[0]["ScwOpinions"].ToString();
                     }
                     #endregion
                 }

@@ -103,7 +103,7 @@ namespace CNVP.Model
         /// 审批意见  
         /// </summary>  
         /// <returns></returns>  
-        [Description("审批意见")]
+        [Description("船报审批意见")]
         public string AppOpinions
         {
             get
@@ -113,6 +113,23 @@ namespace CNVP.Model
             set
             {
                 this._AppOpinions = value;
+            }
+        }
+        private string _ScwOpinions = null;
+        /// <summary>  
+        /// 审批意见  
+        /// </summary>  
+        /// <returns></returns>  
+        [Description("货报审批意见")]
+        public string ScwOpinions
+        {
+            get
+            {
+                return this._ScwOpinions;
+            }
+            set
+            {
+                this._ScwOpinions = value;
             }
         }
     }

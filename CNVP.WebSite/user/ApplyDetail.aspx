@@ -54,7 +54,7 @@
                             <input type="hidden" name="applyId" value="<%=applyId %>" />
                             <input type="hidden" name="scwId" value="<%=scwId %>" />
                             <input type="hidden" name="applyGuid" value="<%=applyGuid %>" />
-                            <label for="in-out" class="control-label">出&nbsp;&nbsp;入&nbsp;&nbsp;港：</label>
+                            <label for="in-out" class="control-label">进&nbsp;&nbsp;出&nbsp;&nbsp;港：</label>
                             <div class="controls controls-inline"><%=strIO %></div>
                         </div>
                         <div class="control-group">
@@ -130,21 +130,21 @@
                         <div class="control-group">
                             <label for="in-out" class="control-label">申 报 员：</label>
                             <div class="controls controls-inline">
-                                <asp:Label ID="Declarer" runat="server" Text="Label"></asp:Label>
+                                <asp:Label ID="Declarer" runat="server"></asp:Label>
                             </div>
                             <label for="in-out" class="control-label">申报员证书编号：</label>
                             <div class="controls controls-inline">
-                                <asp:Label ID="DecCertificateNo" runat="server" Text="Label"></asp:Label>
+                                <asp:Label ID="DecCertificateNo" runat="server"></asp:Label>
                             </div>
                         </div>
                         <div class="control-group">
                             <label for="in-out" class="control-label">船方：</label>
                             <div class="controls controls-inline">
-                                <asp:Label ID="Ship" runat="server" Text="Label"></asp:Label>
+                                <asp:Label ID="Ship" runat="server" Text="&nbsp;"></asp:Label>
                             </div>
                             <label for="in-out" class="control-label">手机：</label>
                             <div class="controls controls-inline">
-                                <asp:Label ID="Telphone" runat="server" Text="Label"></asp:Label>
+                                <asp:Label ID="Telphone" runat="server" Text="&nbsp;"></asp:Label>
                             </div>
                         </div>
                         <div class="control-group">
@@ -179,12 +179,17 @@
                     </div>
                     
                 </div>
+                <asp:Panel ID="Panel1" runat="server">
                 <div class="table-type">
 					<a href="javascript:;" class="index_tabshover">安全适运申报单</a>
 					<%=printScw %>
 				</div>
                 <div class="cnvp-tab-panle">
                     <div class="table-1 scf">
+                        <div class="control-group">
+                        <label for="in-out" class="control-label" style="color: red">审批意见：</label>
+                        <div class="controls controls-inline" style="color: red"><%=spyj1 %></div>
+                    </div>
                         <div class="control-group">
                             <label for="in-out" class="control-label2">散装货物运输名称：</label>
                             <div class="controls controls-inline">
@@ -266,8 +271,10 @@
                         </div>
                     </div>
                 </div>
+                </asp:Panel>
                 <div class="control-group">
-                    <a href="javascript:void(0)" class="btn-submit" onclick="javascript:history.go(-1)">返　　回</a>
+                    <a href="javascript:void(0)" class="btn-submit" onclick="javascript:history.go(-1);">返　　回</a>
+                    <%=printNotice %>
                 </div>
 			</div>
 		</div>

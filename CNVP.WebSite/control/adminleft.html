@@ -27,11 +27,12 @@
 </div>
 <script>
     $(function () {
-        $(".appli-manag a").on("click", function () {
+        $(".appli-manag a").on("click", function() {
             var _url = $(this).attr("data");
             if (_url) {
                 window.location.href = "ApplyList.aspx?State=" + encrypt(encodeURI(_url));
+                window.event.returnValue = false;
             }
-        })
+        });
     })
 </script>

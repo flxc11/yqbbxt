@@ -17,7 +17,7 @@
     <script src="/js/cnvp.js"></script>
 </head>
 <body>
-    <form id="ff" name="ff" action="?Action=EditState" runat="server">
+    <form id="ff" name="ff" action="?Action=EditState" method="post" runat="server">
     <div class="wrap-header">
     	<div class="header">
     		<div class="lg-info">
@@ -125,21 +125,21 @@
                         <div class="control-group">
                             <label for="in-out" class="control-label">申 报 员：</label>
                             <div class="controls controls-inline">
-                                <asp:Label ID="Declarer" runat="server" Text="Label"></asp:Label>
+                                <asp:Label ID="Declarer" runat="server" Text="&nbsp;"></asp:Label>
                             </div>
                             <label for="in-out" class="control-label">申报员证书编号：</label>
                             <div class="controls controls-inline">
-                                <asp:Label ID="DecCertificateNo" runat="server" Text="Label"></asp:Label>
+                                <asp:Label ID="DecCertificateNo" runat="server" Text="&nbsp;"></asp:Label>
                             </div>
                         </div>
                         <div class="control-group">
                             <label for="in-out" class="control-label">船方：</label>
                             <div class="controls controls-inline">
-                                <asp:Label ID="Ship" runat="server" Text="Label"></asp:Label>
+                                <asp:Label ID="Ship" runat="server" Text="&nbsp;"></asp:Label>
                             </div>
                             <label for="in-out" class="control-label">手机：</label>
                             <div class="controls controls-inline">
-                                <asp:Label ID="Telphone" runat="server" Text="Label"></asp:Label>
+                                <asp:Label ID="Telphone" runat="server" Text="&nbsp;"></asp:Label>
                             </div>
                         </div>
                         <div class="control-group" style="text-align:left;padding-left:79px;">
@@ -147,13 +147,20 @@
                             1、<a href="<%=mfile0_0 %>" target="_blank">适航证书</a>&nbsp;&nbsp;
                             2、<a href="<%=mfile0_1 %>" target="_blank">船舶证书</a>&nbsp;&nbsp;
                             3、<a href="<%=mfile0_2 %>" target="_blank">配载图</a>&nbsp;&nbsp;
-                            4、<a href="<%=mfile0_3 %>" target="_blank">进/出港申报委托书</a>&nbsp;&nbsp;
-                            5、<a href="<%=mfile0_4 %>" target="_blank">保险证书类型</a>
+                            <%=mfile0_3 %>
+                            <%=mfile0_4 %>
+                            6、<a href="/user/other.aspx?AppGuid=<%=applyGuid %>&imgtype=1" target="_blank">其它</a>
                         </div>
                     </div>
-                    
+                <div class="control-group">
+                    <label class="control-label2" style="color: red">船报审批意见：</label>
+                    <div class="controls controls-inline">
+                        <asp:TextBox ID="AppOpinions" runat="server" Height="100px" TextMode="MultiLine" Width="565px"></asp:TextBox>
+                    </div>
                 </div>
-                <div class="table-type">
+                </div>
+                <asp:Panel ID="Panel1" runat="server">
+                    <div class="table-type">
 					<a href="javascript:;" class="index_tabshover">安全适运申报单</a>
 				</div>
                 <div class="cnvp-tab-panle">
@@ -242,8 +249,15 @@
                         </div>
                     </div>
                 </div>
+                <div class="control-group">
+                    <label class="control-label2" style="color: red">货报审批意见：</label>
+                    <div class="controls controls-inline">
+                        <asp:TextBox ID="ScwOpinions" runat="server" Height="100px" TextMode="MultiLine" Width="565px"></asp:TextBox>
+                    </div>
+                </div>
+                </asp:Panel>
                 <div class="control-group" style="padding-top:20px;">
-                    <label for="in-out" class="control-label2" style="color: red">审批状态：</label>
+                    <label for="in-out" class="control-label2" style="color: red">审批单审批状态：</label>
                     <div class="controls controls-inline">
                         <asp:RadioButtonList ID="AppState" runat="server" RepeatDirection="Horizontal">
                             <asp:ListItem Value="0">待审批</asp:ListItem>
@@ -254,15 +268,9 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label2" style="color: red">审批意见：</label>
-                    <div class="controls controls-inline">
-                        <asp:TextBox ID="AppOpinions" runat="server" Height="100px" TextMode="MultiLine" Width="565px"></asp:TextBox>
-                    </div>
-                </div>
-                <div class="control-group">
                      <label class="control-label2">&nbsp;</label>
                     <div class="controls controls-inline">
-                        <a href="javascript:void(0)" class="btn-submit" onclick="submitForm()">审批申报</a>
+                        <a href="javascript:void(0)" class="btn-submit" onclick="submitForm();return false;">审批申报</a>
                         <a href="javascript:void(0)" class="btn-submit" onclick="javascript:history.go(-1)">返　　回</a>
                     </div>
                 </div>

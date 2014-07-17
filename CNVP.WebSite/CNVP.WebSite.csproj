@@ -42,6 +42,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\3月份\[14-03-13]在线申请\申请\CNVP.Admin\bin\Ionic.Zip.dll</HintPath>
     </Reference>
+    <Reference Include="MessagingToolkit.QRCode, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MessagingToolkit.QRCode.dll</HintPath>
+    </Reference>
     <Reference Include="NPOI, Version=1.2.5.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\3月份\[14-03-13]在线申请\申请\CNVP.Admin\bin\NPOI.dll</HintPath>
@@ -80,6 +84,7 @@
     <Content Include="bin\CNVP.WebSite.dll" />
     <Content Include="bin\CNVP.WebSite.pdb" />
     <Content Include="bin\Ionic.Zip.dll" />
+    <Content Include="bin\MessagingToolkit.QRCode.dll" />
     <Content Include="bin\MySql.Data.dll" />
     <Content Include="bin\NPOI.dll" />
     <Content Include="CNVP.Data.csproj" />
@@ -113,224 +118,16 @@
     <Content Include="images\imgwelcome.jpg" />
     <Content Include="js\encrypt.js" />
     <Content Include="js\JqPrintArea.js" />
+    <Content Include="js\jquery.easyui.min.js" />
+    <Content Include="js\jquery.js" />
     <Content Include="js\jQuery.query.js" />
     <Content Include="reg.aspx" />
+    <Content Include="Template\scw - Copy.htm" />
+    <Content Include="Template\scw.htm" />
     <Content Include="Template\SolidBulk - Copy.htm" />
     <Content Include="Template\SolidBulk\filelist.xml" />
     <Content Include="Template\SolidBulk\header.htm" />
     <Content Include="Template\SolidBulk.htm" />
-    <Content Include="UploadFile\20140620\201406201538486747.jpg" />
-    <Content Include="UploadFile\20140620\201406201538488058.png" />
-    <Content Include="UploadFile\20140620\201406201538489080.png" />
-    <Content Include="UploadFile\20140620\201406201538490101.jpg" />
-    <Content Include="UploadFile\20140620\201406201538491122.png" />
-    <Content Include="UploadFile\20140620\201406201540251420.jpg" />
-    <Content Include="UploadFile\20140620\201406201540252461.png" />
-    <Content Include="UploadFile\20140620\201406201540253472.png" />
-    <Content Include="UploadFile\20140620\201406201540254493.jpg" />
-    <Content Include="UploadFile\20140620\201406201540255514.png" />
-    <Content Include="UploadFile\20140620\201406201614055900.gif" />
-    <Content Include="UploadFile\20140620\201406201614056921.png" />
-    <Content Include="UploadFile\20140620\201406201614057933.jpg" />
-    <Content Include="UploadFile\20140620\201406201614058944.png" />
-    <Content Include="UploadFile\20140620\201406201614059966.png" />
-    <Content Include="UploadFile\20140620\201406201614291207.gif" />
-    <Content Include="UploadFile\20140620\201406201614292228.png" />
-    <Content Include="UploadFile\20140620\201406201614293249.jpg" />
-    <Content Include="UploadFile\20140620\201406201614294279.png" />
-    <Content Include="UploadFile\20140620\201406201614295300.png" />
-    <Content Include="UploadFile\20140623\201406231000123047.jpg" />
-    <Content Include="UploadFile\20140623\201406231000124398.jpg" />
-    <Content Include="UploadFile\20140623\201406231000125417.jpg" />
-    <Content Include="UploadFile\20140623\201406231000126444.jpg" />
-    <Content Include="UploadFile\20140623\201406231000127469.png" />
-    <Content Include="UploadFile\20140623\201406231040314304.jpg" />
-    <Content Include="UploadFile\20140623\201406231040315412.png" />
-    <Content Include="UploadFile\20140623\201406231040316432.jpg" />
-    <Content Include="UploadFile\20140623\201406231040317454.png" />
-    <Content Include="UploadFile\20140623\201406231040318473.jpg" />
-    <Content Include="UploadFile\20140623\201406231121389384.jpg" />
-    <Content Include="UploadFile\20140623\201406231121390405.png" />
-    <Content Include="UploadFile\20140623\201406231121391426.png" />
-    <Content Include="UploadFile\20140623\201406231121392446.jpg" />
-    <Content Include="UploadFile\20140623\201406231121393467.jpg" />
-    <Content Include="UploadFile\20140623\201406231121523364.jpg" />
-    <Content Include="UploadFile\20140623\201406231121524375.png" />
-    <Content Include="UploadFile\20140623\201406231121525386.png" />
-    <Content Include="UploadFile\20140623\201406231121526396.jpg" />
-    <Content Include="UploadFile\20140623\201406231121527417.jpg" />
-    <Content Include="UploadFile\20140623\201406231418448411.png" />
-    <Content Include="UploadFile\20140623\201406231418449422.png" />
-    <Content Include="UploadFile\20140623\201406231418450442.png" />
-    <Content Include="UploadFile\20140623\201406231418451463.png" />
-    <Content Include="UploadFile\20140623\201406231418453234.png" />
-    <Content Include="UploadFile\20140623\201406231421044304.png" />
-    <Content Include="UploadFile\20140623\201406231421045385.png" />
-    <Content Include="UploadFile\20140623\201406231421046425.png" />
-    <Content Include="UploadFile\20140623\201406231421047446.png" />
-    <Content Include="UploadFile\20140623\201406231421048467.png" />
-    <Content Include="UploadFile\20140625\201406251541554347.gif" />
-    <Content Include="UploadFile\20140625\201406251541555518.png" />
-    <Content Include="UploadFile\20140625\201406251541556539.png" />
-    <Content Include="UploadFile\20140625\201406251541557560.jpg" />
-    <Content Include="UploadFile\20140625\201406251541558581.jpg" />
-    <Content Include="UploadFile\20140625\201406251545147278.gif" />
-    <Content Include="UploadFile\20140625\201406251545148399.png" />
-    <Content Include="UploadFile\20140625\201406251545149420.png" />
-    <Content Include="UploadFile\20140625\201406251545150441.jpg" />
-    <Content Include="UploadFile\20140625\201406251545151461.jpg" />
-    <Content Include="UploadFile\20140625\201406251615000140.gif" />
-    <Content Include="UploadFile\20140625\201406251615001261.png" />
-    <Content Include="UploadFile\20140625\201406251615002282.png" />
-    <Content Include="UploadFile\20140625\201406251615003293.jpg" />
-    <Content Include="UploadFile\20140625\201406251615004484.jpg" />
-    <Content Include="UploadFile\20140625\201406251616593857.gif" />
-    <Content Include="UploadFile\20140625\201406251617294438.png" />
-    <Content Include="UploadFile\20140625\201406251617325154.png" />
-    <Content Include="UploadFile\20140625\201406251619037092.jpg" />
-    <Content Include="UploadFile\20140625\201406251619081591.jpg" />
-    <Content Include="UploadFile\20140625\201406251634432429.gif" />
-    <Content Include="UploadFile\20140625\201406251634433570.png" />
-    <Content Include="UploadFile\20140625\201406251634434581.png" />
-    <Content Include="UploadFile\20140625\201406251634435591.jpg" />
-    <Content Include="UploadFile\20140625\201406251634436612.jpg" />
-    <Content Include="UploadFile\20140625\201406251641112653.gif" />
-    <Content Include="UploadFile\20140625\201406251641113674.png" />
-    <Content Include="UploadFile\20140625\201406251641114684.png" />
-    <Content Include="UploadFile\20140625\201406251641115705.jpg" />
-    <Content Include="UploadFile\20140625\201406251641116726.jpg" />
-    <Content Include="UploadFile\20140626\201406261350587681.png" />
-    <Content Include="UploadFile\20140626\201406261354233389.png" />
-    <Content Include="UploadFile\20140626\201406261402389706.png" />
-    <Content Include="UploadFile\20140626\201406261406079918.png" />
-    <Content Include="UploadFile\20140626\201406261411462825.png" />
-    <Content Include="UploadFile\20140626\201406261416124757.png" />
-    <Content Include="UploadFile\20140626\201406261416193322.png" />
-    <Content Include="UploadFile\20140626\201406261431362400.png" />
-    <Content Include="UploadFile\20140626\201406261431399188.png" />
-    <Content Include="UploadFile\20140626\201406261452013609.png" />
-    <Content Include="UploadFile\20140626\201406261452014634.png" />
-    <Content Include="UploadFile\20140626\201406261453351157.png" />
-    <Content Include="UploadFile\20140626\201406261453385924.png" />
-    <Content Include="UploadFile\20140626\201406261455479938.png" />
-    <Content Include="UploadFile\20140626\201406261455480959.png" />
-    <Content Include="UploadFile\20140626\201406261456336701.png" />
-    <Content Include="UploadFile\20140626\201406261456386173.png" />
-    <Content Include="UploadFile\20140626\201406261458532471.png" />
-    <Content Include="UploadFile\20140626\201406261458533493.png" />
-    <Content Include="UploadFile\20140626\201406261525053358.jpg" />
-    <Content Include="UploadFile\20140627\201406271528477290.gif" />
-    <Content Include="UploadFile\20140627\201406271528478461.jpg" />
-    <Content Include="UploadFile\20140627\201406271528479662.jpg" />
-    <Content Include="UploadFile\20140627\201406271528480682.png" />
-    <Content Include="UploadFile\20140627\201406271528481703.jpg" />
-    <Content Include="UploadFile\20140627\201406271529500219.gif" />
-    <Content Include="UploadFile\20140627\201406271529501249.jpg" />
-    <Content Include="UploadFile\20140627\201406271529502330.jpg" />
-    <Content Include="UploadFile\20140627\201406271529503351.png" />
-    <Content Include="UploadFile\20140627\201406271529504371.jpg" />
-    <Content Include="UploadFile\20140627\201406271529555150.gif" />
-    <Content Include="UploadFile\20140627\201406271529556241.jpg" />
-    <Content Include="UploadFile\20140627\201406271529557272.jpg" />
-    <Content Include="UploadFile\20140627\201406271529558292.png" />
-    <Content Include="UploadFile\20140627\201406271529559313.jpg" />
-    <Content Include="UploadFile\20140627\201406271532045208.gif" />
-    <Content Include="UploadFile\20140627\201406271532046229.jpg" />
-    <Content Include="UploadFile\20140627\201406271532047300.jpg" />
-    <Content Include="UploadFile\20140627\201406271532048321.png" />
-    <Content Include="UploadFile\20140627\201406271532049341.jpg" />
-    <Content Include="UploadFile\20140627\201406271536497609.gif" />
-    <Content Include="UploadFile\20140627\201406271536498670.jpg" />
-    <Content Include="UploadFile\20140627\201406271536499681.jpg" />
-    <Content Include="UploadFile\20140627\201406271536500771.png" />
-    <Content Include="UploadFile\20140627\201406271536501792.jpg" />
-    <Content Include="UploadFile\20140627\201406271544440890.gif" />
-    <Content Include="UploadFile\20140627\201406271544441911.jpg" />
-    <Content Include="UploadFile\20140627\201406271544442932.jpg" />
-    <Content Include="UploadFile\20140627\201406271544443953.png" />
-    <Content Include="UploadFile\20140627\201406271544445214.jpg" />
-    <Content Include="UploadFile\20140627\201406271545350165.gif" />
-    <Content Include="UploadFile\20140627\201406271545351195.jpg" />
-    <Content Include="UploadFile\20140627\201406271545352236.jpg" />
-    <Content Include="UploadFile\20140627\201406271545353627.png" />
-    <Content Include="UploadFile\20140627\201406271545354648.jpg" />
-    <Content Include="UploadFile\20140627\201406271545381846.gif" />
-    <Content Include="UploadFile\20140627\201406271545382867.jpg" />
-    <Content Include="UploadFile\20140627\201406271545383878.jpg" />
-    <Content Include="UploadFile\20140627\201406271545384898.png" />
-    <Content Include="UploadFile\20140627\201406271545385929.jpg" />
-    <Content Include="UploadFile\20140627\201406271545408155.gif" />
-    <Content Include="UploadFile\20140627\201406271545409186.jpg" />
-    <Content Include="UploadFile\20140627\201406271545410206.jpg" />
-    <Content Include="UploadFile\20140627\201406271545411227.png" />
-    <Content Include="UploadFile\20140627\201406271545412248.jpg" />
-    <Content Include="UploadFile\20140627\201406271545427719.gif" />
-    <Content Include="UploadFile\20140627\201406271545428740.jpg" />
-    <Content Include="UploadFile\20140627\201406271545429750.jpg" />
-    <Content Include="UploadFile\20140627\201406271545430771.png" />
-    <Content Include="UploadFile\20140627\201406271545431792.jpg" />
-    <Content Include="UploadFile\20140627\201406271545445671.gif" />
-    <Content Include="UploadFile\20140627\201406271545446692.jpg" />
-    <Content Include="UploadFile\20140627\201406271545447703.jpg" />
-    <Content Include="UploadFile\20140627\201406271545448723.png" />
-    <Content Include="UploadFile\20140627\201406271545449744.jpg" />
-    <Content Include="UploadFile\20140627\201406271545579573.gif" />
-    <Content Include="UploadFile\20140627\201406271545580714.jpg" />
-    <Content Include="UploadFile\20140627\201406271545581724.jpg" />
-    <Content Include="UploadFile\20140627\201406271545582735.png" />
-    <Content Include="UploadFile\20140627\201406271545583756.jpg" />
-    <Content Include="UploadFile\20140627\201406271546516775.gif" />
-    <Content Include="UploadFile\20140627\201406271546517795.jpg" />
-    <Content Include="UploadFile\20140627\201406271546518826.jpg" />
-    <Content Include="UploadFile\20140627\201406271546519847.png" />
-    <Content Include="UploadFile\20140627\201406271546520947.jpg" />
-    <Content Include="UploadFile\20140627\201406271546544473.gif" />
-    <Content Include="UploadFile\20140627\201406271546545494.jpg" />
-    <Content Include="UploadFile\20140627\201406271546546515.jpg" />
-    <Content Include="UploadFile\20140627\201406271546547575.png" />
-    <Content Include="UploadFile\20140627\201406271546548586.jpg" />
-    <Content Include="UploadFile\20140627\201406271546596641.gif" />
-    <Content Include="UploadFile\20140627\201406271546597662.jpg" />
-    <Content Include="UploadFile\20140627\201406271546598693.jpg" />
-    <Content Include="UploadFile\20140627\201406271546599714.png" />
-    <Content Include="UploadFile\20140627\201406271547000735.jpg" />
-    <Content Include="UploadFile\20140627\201406271547020940.gif" />
-    <Content Include="UploadFile\20140627\201406271547021960.jpg" />
-    <Content Include="UploadFile\20140627\201406271547022981.jpg" />
-    <Content Include="UploadFile\20140627\201406271547024002.png" />
-    <Content Include="UploadFile\20140627\201406271547025023.jpg" />
-    <Content Include="UploadFile\20140627\201406271547120362.gif" />
-    <Content Include="UploadFile\20140627\201406271547121383.jpg" />
-    <Content Include="UploadFile\20140627\201406271547122404.jpg" />
-    <Content Include="UploadFile\20140627\201406271547123425.png" />
-    <Content Include="UploadFile\20140627\201406271547124535.jpg" />
-    <Content Include="UploadFile\20140627\201406271547504920.gif" />
-    <Content Include="UploadFile\20140627\201406271547506281.jpg" />
-    <Content Include="UploadFile\20140627\201406271547507301.jpg" />
-    <Content Include="UploadFile\20140627\201406271547508322.png" />
-    <Content Include="UploadFile\20140627\201406271547509343.jpg" />
-    <Content Include="UploadFile\20140627\201406271548166870.gif" />
-    <Content Include="UploadFile\20140627\201406271548167890.jpg" />
-    <Content Include="UploadFile\20140627\201406271548168901.jpg" />
-    <Content Include="UploadFile\20140627\201406271548169922.png" />
-    <Content Include="UploadFile\20140627\201406271548171203.jpg" />
-    <Content Include="UploadFile\20140627\201406271556549344.gif" />
-    <Content Include="UploadFile\20140627\201406271557029388.jpg" />
-    <Content Include="UploadFile\20140627\201406271557061320.jpg" />
-    <Content Include="UploadFile\20140627\201406271557084636.png" />
-    <Content Include="UploadFile\20140627\201406271557113086.jpg" />
-    <Content Include="user\ApplicationList.aspx" />
-    <Content Include="user\ApplyDetail.aspx" />
-    <Content Include="user\ApplyEdit.aspx" />
-    <Content Include="user\index.aspx" />
-    <Content Include="js\cnvp.js" />
-    <Content Include="js\easyui-lang-zh_CN.js" />
-    <Content Include="js\jquery.easyui.min.js" />
-    <Content Include="js\jquery.js" />
-    <Content Include="js\jquery.min.js" />
-    <Content Include="user\login.aspx" />
-    <Content Include="user\other.aspx" />
-    <Content Include="user\reg.aspx" />
     <Content Include="themes\black\accordion.css" />
     <Content Include="themes\black\calendar.css" />
     <Content Include="themes\black\combo.css" />
@@ -594,7 +391,221 @@
     <Content Include="themes\metro\tree.css" />
     <Content Include="themes\metro\validatebox.css" />
     <Content Include="themes\metro\window.css" />
+    <Content Include="UploadFile\20140620\201406201538486747.jpg" />
+    <Content Include="UploadFile\20140620\201406201538488058.png" />
+    <Content Include="UploadFile\20140620\201406201538489080.png" />
+    <Content Include="UploadFile\20140620\201406201538490101.jpg" />
+    <Content Include="UploadFile\20140620\201406201538491122.png" />
+    <Content Include="UploadFile\20140620\201406201540251420.jpg" />
+    <Content Include="UploadFile\20140620\201406201540252461.png" />
+    <Content Include="UploadFile\20140620\201406201540253472.png" />
+    <Content Include="UploadFile\20140620\201406201540254493.jpg" />
+    <Content Include="UploadFile\20140620\201406201540255514.png" />
+    <Content Include="UploadFile\20140620\201406201614055900.gif" />
+    <Content Include="UploadFile\20140620\201406201614056921.png" />
+    <Content Include="UploadFile\20140620\201406201614057933.jpg" />
+    <Content Include="UploadFile\20140620\201406201614058944.png" />
+    <Content Include="UploadFile\20140620\201406201614059966.png" />
+    <Content Include="UploadFile\20140620\201406201614291207.gif" />
+    <Content Include="UploadFile\20140620\201406201614292228.png" />
+    <Content Include="UploadFile\20140620\201406201614293249.jpg" />
+    <Content Include="UploadFile\20140620\201406201614294279.png" />
+    <Content Include="UploadFile\20140620\201406201614295300.png" />
+    <Content Include="UploadFile\20140623\201406231000123047.jpg" />
+    <Content Include="UploadFile\20140623\201406231000124398.jpg" />
+    <Content Include="UploadFile\20140623\201406231000125417.jpg" />
+    <Content Include="UploadFile\20140623\201406231000126444.jpg" />
+    <Content Include="UploadFile\20140623\201406231000127469.png" />
+    <Content Include="UploadFile\20140623\201406231040314304.jpg" />
+    <Content Include="UploadFile\20140623\201406231040315412.png" />
+    <Content Include="UploadFile\20140623\201406231040316432.jpg" />
+    <Content Include="UploadFile\20140623\201406231040317454.png" />
+    <Content Include="UploadFile\20140623\201406231040318473.jpg" />
+    <Content Include="UploadFile\20140623\201406231121389384.jpg" />
+    <Content Include="UploadFile\20140623\201406231121390405.png" />
+    <Content Include="UploadFile\20140623\201406231121391426.png" />
+    <Content Include="UploadFile\20140623\201406231121392446.jpg" />
+    <Content Include="UploadFile\20140623\201406231121393467.jpg" />
+    <Content Include="UploadFile\20140623\201406231121523364.jpg" />
+    <Content Include="UploadFile\20140623\201406231121524375.png" />
+    <Content Include="UploadFile\20140623\201406231121525386.png" />
+    <Content Include="UploadFile\20140623\201406231121526396.jpg" />
+    <Content Include="UploadFile\20140623\201406231121527417.jpg" />
+    <Content Include="UploadFile\20140623\201406231418448411.png" />
+    <Content Include="UploadFile\20140623\201406231418449422.png" />
+    <Content Include="UploadFile\20140623\201406231418450442.png" />
+    <Content Include="UploadFile\20140623\201406231418451463.png" />
+    <Content Include="UploadFile\20140623\201406231418453234.png" />
+    <Content Include="UploadFile\20140623\201406231421044304.png" />
+    <Content Include="UploadFile\20140623\201406231421045385.png" />
+    <Content Include="UploadFile\20140623\201406231421046425.png" />
+    <Content Include="UploadFile\20140623\201406231421047446.png" />
+    <Content Include="UploadFile\20140623\201406231421048467.png" />
+    <Content Include="UploadFile\20140625\201406251541554347.gif" />
+    <Content Include="UploadFile\20140625\201406251541555518.png" />
+    <Content Include="UploadFile\20140625\201406251541556539.png" />
+    <Content Include="UploadFile\20140625\201406251541557560.jpg" />
+    <Content Include="UploadFile\20140625\201406251541558581.jpg" />
+    <Content Include="UploadFile\20140625\201406251545147278.gif" />
+    <Content Include="UploadFile\20140625\201406251545148399.png" />
+    <Content Include="UploadFile\20140625\201406251545149420.png" />
+    <Content Include="UploadFile\20140625\201406251545150441.jpg" />
+    <Content Include="UploadFile\20140625\201406251545151461.jpg" />
+    <Content Include="UploadFile\20140625\201406251615000140.gif" />
+    <Content Include="UploadFile\20140625\201406251615001261.png" />
+    <Content Include="UploadFile\20140625\201406251615002282.png" />
+    <Content Include="UploadFile\20140625\201406251615003293.jpg" />
+    <Content Include="UploadFile\20140625\201406251615004484.jpg" />
+    <Content Include="UploadFile\20140625\201406251616593857.gif" />
+    <Content Include="UploadFile\20140625\201406251617294438.png" />
+    <Content Include="UploadFile\20140625\201406251617325154.png" />
+    <Content Include="UploadFile\20140625\201406251619037092.jpg" />
+    <Content Include="UploadFile\20140625\201406251619081591.jpg" />
+    <Content Include="UploadFile\20140625\201406251634432429.gif" />
+    <Content Include="UploadFile\20140625\201406251634433570.png" />
+    <Content Include="UploadFile\20140625\201406251634434581.png" />
+    <Content Include="UploadFile\20140625\201406251634435591.jpg" />
+    <Content Include="UploadFile\20140625\201406251634436612.jpg" />
+    <Content Include="UploadFile\20140625\201406251641112653.gif" />
+    <Content Include="UploadFile\20140625\201406251641113674.png" />
+    <Content Include="UploadFile\20140625\201406251641114684.png" />
+    <Content Include="UploadFile\20140625\201406251641115705.jpg" />
+    <Content Include="UploadFile\20140625\201406251641116726.jpg" />
+    <Content Include="UploadFile\20140626\201406261350587681.png" />
+    <Content Include="UploadFile\20140626\201406261354233389.png" />
+    <Content Include="UploadFile\20140626\201406261402389706.png" />
+    <Content Include="UploadFile\20140626\201406261406079918.png" />
+    <Content Include="UploadFile\20140626\201406261411462825.png" />
+    <Content Include="UploadFile\20140626\201406261416124757.png" />
+    <Content Include="UploadFile\20140626\201406261416193322.png" />
+    <Content Include="UploadFile\20140626\201406261431362400.png" />
+    <Content Include="UploadFile\20140626\201406261431399188.png" />
+    <Content Include="UploadFile\20140626\201406261452013609.png" />
+    <Content Include="UploadFile\20140626\201406261452014634.png" />
+    <Content Include="UploadFile\20140626\201406261453351157.png" />
+    <Content Include="UploadFile\20140626\201406261453385924.png" />
+    <Content Include="UploadFile\20140626\201406261455479938.png" />
+    <Content Include="UploadFile\20140626\201406261455480959.png" />
+    <Content Include="UploadFile\20140626\201406261456336701.png" />
+    <Content Include="UploadFile\20140626\201406261456386173.png" />
+    <Content Include="UploadFile\20140626\201406261458532471.png" />
+    <Content Include="UploadFile\20140626\201406261458533493.png" />
+    <Content Include="UploadFile\20140626\201406261525053358.jpg" />
+    <Content Include="UploadFile\20140627\201406271528477290.gif" />
+    <Content Include="UploadFile\20140627\201406271528478461.jpg" />
+    <Content Include="UploadFile\20140627\201406271528479662.jpg" />
+    <Content Include="UploadFile\20140627\201406271528480682.png" />
+    <Content Include="UploadFile\20140627\201406271528481703.jpg" />
+    <Content Include="UploadFile\20140627\201406271529500219.gif" />
+    <Content Include="UploadFile\20140627\201406271529501249.jpg" />
+    <Content Include="UploadFile\20140627\201406271529502330.jpg" />
+    <Content Include="UploadFile\20140627\201406271529503351.png" />
+    <Content Include="UploadFile\20140627\201406271529504371.jpg" />
+    <Content Include="UploadFile\20140627\201406271529555150.gif" />
+    <Content Include="UploadFile\20140627\201406271529556241.jpg" />
+    <Content Include="UploadFile\20140627\201406271529557272.jpg" />
+    <Content Include="UploadFile\20140627\201406271529558292.png" />
+    <Content Include="UploadFile\20140627\201406271529559313.jpg" />
+    <Content Include="UploadFile\20140627\201406271532045208.gif" />
+    <Content Include="UploadFile\20140627\201406271532046229.jpg" />
+    <Content Include="UploadFile\20140627\201406271532047300.jpg" />
+    <Content Include="UploadFile\20140627\201406271532048321.png" />
+    <Content Include="UploadFile\20140627\201406271532049341.jpg" />
+    <Content Include="UploadFile\20140627\201406271536497609.gif" />
+    <Content Include="UploadFile\20140627\201406271536498670.jpg" />
+    <Content Include="UploadFile\20140627\201406271536499681.jpg" />
+    <Content Include="UploadFile\20140627\201406271536500771.png" />
+    <Content Include="UploadFile\20140627\201406271536501792.jpg" />
+    <Content Include="UploadFile\20140627\201406271544440890.gif" />
+    <Content Include="UploadFile\20140627\201406271544441911.jpg" />
+    <Content Include="UploadFile\20140627\201406271544442932.jpg" />
+    <Content Include="UploadFile\20140627\201406271544443953.png" />
+    <Content Include="UploadFile\20140627\201406271544445214.jpg" />
+    <Content Include="UploadFile\20140627\201406271545350165.gif" />
+    <Content Include="UploadFile\20140627\201406271545351195.jpg" />
+    <Content Include="UploadFile\20140627\201406271545352236.jpg" />
+    <Content Include="UploadFile\20140627\201406271545353627.png" />
+    <Content Include="UploadFile\20140627\201406271545354648.jpg" />
+    <Content Include="UploadFile\20140627\201406271545381846.gif" />
+    <Content Include="UploadFile\20140627\201406271545382867.jpg" />
+    <Content Include="UploadFile\20140627\201406271545383878.jpg" />
+    <Content Include="UploadFile\20140627\201406271545384898.png" />
+    <Content Include="UploadFile\20140627\201406271545385929.jpg" />
+    <Content Include="UploadFile\20140627\201406271545408155.gif" />
+    <Content Include="UploadFile\20140627\201406271545409186.jpg" />
+    <Content Include="UploadFile\20140627\201406271545410206.jpg" />
+    <Content Include="UploadFile\20140627\201406271545411227.png" />
+    <Content Include="UploadFile\20140627\201406271545412248.jpg" />
+    <Content Include="UploadFile\20140627\201406271545427719.gif" />
+    <Content Include="UploadFile\20140627\201406271545428740.jpg" />
+    <Content Include="UploadFile\20140627\201406271545429750.jpg" />
+    <Content Include="UploadFile\20140627\201406271545430771.png" />
+    <Content Include="UploadFile\20140627\201406271545431792.jpg" />
+    <Content Include="UploadFile\20140627\201406271545445671.gif" />
+    <Content Include="UploadFile\20140627\201406271545446692.jpg" />
+    <Content Include="UploadFile\20140627\201406271545447703.jpg" />
+    <Content Include="UploadFile\20140627\201406271545448723.png" />
+    <Content Include="UploadFile\20140627\201406271545449744.jpg" />
+    <Content Include="UploadFile\20140627\201406271545579573.gif" />
+    <Content Include="UploadFile\20140627\201406271545580714.jpg" />
+    <Content Include="UploadFile\20140627\201406271545581724.jpg" />
+    <Content Include="UploadFile\20140627\201406271545582735.png" />
+    <Content Include="UploadFile\20140627\201406271545583756.jpg" />
+    <Content Include="UploadFile\20140627\201406271546516775.gif" />
+    <Content Include="UploadFile\20140627\201406271546517795.jpg" />
+    <Content Include="UploadFile\20140627\201406271546518826.jpg" />
+    <Content Include="UploadFile\20140627\201406271546519847.png" />
+    <Content Include="UploadFile\20140627\201406271546520947.jpg" />
+    <Content Include="UploadFile\20140627\201406271546544473.gif" />
+    <Content Include="UploadFile\20140627\201406271546545494.jpg" />
+    <Content Include="UploadFile\20140627\201406271546546515.jpg" />
+    <Content Include="UploadFile\20140627\201406271546547575.png" />
+    <Content Include="UploadFile\20140627\201406271546548586.jpg" />
+    <Content Include="UploadFile\20140627\201406271546596641.gif" />
+    <Content Include="UploadFile\20140627\201406271546597662.jpg" />
+    <Content Include="UploadFile\20140627\201406271546598693.jpg" />
+    <Content Include="UploadFile\20140627\201406271546599714.png" />
+    <Content Include="UploadFile\20140627\201406271547000735.jpg" />
+    <Content Include="UploadFile\20140627\201406271547020940.gif" />
+    <Content Include="UploadFile\20140627\201406271547021960.jpg" />
+    <Content Include="UploadFile\20140627\201406271547022981.jpg" />
+    <Content Include="UploadFile\20140627\201406271547024002.png" />
+    <Content Include="UploadFile\20140627\201406271547025023.jpg" />
+    <Content Include="UploadFile\20140627\201406271547120362.gif" />
+    <Content Include="UploadFile\20140627\201406271547121383.jpg" />
+    <Content Include="UploadFile\20140627\201406271547122404.jpg" />
+    <Content Include="UploadFile\20140627\201406271547123425.png" />
+    <Content Include="UploadFile\20140627\201406271547124535.jpg" />
+    <Content Include="UploadFile\20140627\201406271547504920.gif" />
+    <Content Include="UploadFile\20140627\201406271547506281.jpg" />
+    <Content Include="UploadFile\20140627\201406271547507301.jpg" />
+    <Content Include="UploadFile\20140627\201406271547508322.png" />
+    <Content Include="UploadFile\20140627\201406271547509343.jpg" />
+    <Content Include="UploadFile\20140627\201406271548166870.gif" />
+    <Content Include="UploadFile\20140627\201406271548167890.jpg" />
+    <Content Include="UploadFile\20140627\201406271548168901.jpg" />
+    <Content Include="UploadFile\20140627\201406271548169922.png" />
+    <Content Include="UploadFile\20140627\201406271548171203.jpg" />
+    <Content Include="UploadFile\20140627\201406271556549344.gif" />
+    <Content Include="UploadFile\20140627\201406271557029388.jpg" />
+    <Content Include="UploadFile\20140627\201406271557061320.jpg" />
+    <Content Include="UploadFile\20140627\201406271557084636.png" />
+    <Content Include="UploadFile\20140627\201406271557113086.jpg" />
+    <Content Include="user\ApplicationList.aspx" />
+    <Content Include="user\ApplyDetail.aspx" />
+    <Content Include="user\ApplyEdit.aspx" />
+    <Content Include="user\index.aspx" />
+    <Content Include="js\cnvp.js" />
+    <Content Include="js\easyui-lang-zh_CN.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="user\login.aspx" />
+    <Content Include="user\Notice.aspx" />
+    <Content Include="user\other.aspx" />
+    <Content Include="user\phone.aspx" />
+    <Content Include="user\QuickMark.aspx" />
+    <Content Include="user\reg.aspx" />
     <Content Include="control\userleft.html" />
+    <Content Include="user\scwprint.aspx" />
     <Content Include="user\SolidBulk.aspx" />
     <Content Include="user\userinfo.aspx" />
     <Content Include="user\userjson.aspx" />
@@ -708,6 +719,9 @@
     <Compile Include="user\ApplyEdit.aspx.designer.cs">
       <DependentUpon>ApplyEdit.aspx</DependentUpon>
     </Compile>
+    <Compile Include="user\GetQRCode.ashx.cs">
+      <DependentUpon>GetQRCode.ashx</DependentUpon>
+    </Compile>
     <Compile Include="user\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -723,6 +737,13 @@
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="user\Notice.aspx.cs">
+      <DependentUpon>Notice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\Notice.aspx.designer.cs">
+      <DependentUpon>Notice.aspx</DependentUpon>
+    </Compile>
     <Compile Include="user\other.aspx.cs">
       <DependentUpon>other.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -730,12 +751,33 @@
     <Compile Include="user\other.aspx.designer.cs">
       <DependentUpon>other.aspx</DependentUpon>
     </Compile>
+    <Compile Include="user\phone.aspx.cs">
+      <DependentUpon>phone.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\phone.aspx.designer.cs">
+      <DependentUpon>phone.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\QuickMark.aspx.cs">
+      <DependentUpon>QuickMark.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\QuickMark.aspx.designer.cs">
+      <DependentUpon>QuickMark.aspx</DependentUpon>
+    </Compile>
     <Compile Include="user\reg.aspx.cs">
       <DependentUpon>reg.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="user\reg.aspx.designer.cs">
       <DependentUpon>reg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\scwprint.aspx.cs">
+      <DependentUpon>scwprint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\scwprint.aspx.designer.cs">
+      <DependentUpon>scwprint.aspx</DependentUpon>
     </Compile>
     <Compile Include="user\SolidBulk.aspx.cs">
       <DependentUpon>SolidBulk.aspx</DependentUpon>
@@ -773,6 +815,7 @@
     <Content Include="bin\CNVP.WebSite.dll.config" />
     <None Include="Properties\PublishProfiles\11.pubxml" />
     <Content Include="sass\style.sass" />
+    <Content Include="user\GetQRCode.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -314,7 +314,7 @@
         //pageNumber:2,
         beforePageText: '第',//页数文本框前显示的汉字
         afterPageText: '页    共 {pages} 页',
-        displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录',
+        displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录'
         // onSelectPage:function(pageNum, pageSize){
         //     opts.pageNumber = pageNum;
         //     opts.pageSize = pageSize;
