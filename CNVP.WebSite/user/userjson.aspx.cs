@@ -11,6 +11,8 @@ using System.Web.UI.WebControls;
 
 namespace CNVP.WebSite.user
 {
+    using System.Collections;
+
     public partial class userjson : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -25,27 +27,30 @@ namespace CNVP.WebSite.user
             switch (Action)
             {
                 case "GetApplyList":
-                    GetApplyList();
+                    this.GetApplyList();
                     break;
                 case "Delete":
-                    Delete();
+                    this.Delete();
                     break;
                 case "GetUserList":
-                    GetUserList();
+                    this.GetUserList();
                     break;
                 case "UpdateUser":
-                    UpdateUser();
+                    this.UpdateUser();
                     break;
                 case "ResetUserPass":
-                    ResetUserPass();
+                    this.ResetUserPass();
                     break;
                 case "DeleteUser":
-                    DeleteUser();
-                    break;
-                default:
+                    this.DeleteUser();
                     break;
                 case "ApplySearch":
-                    ApplySearch();
+                    this.ApplySearch();
+                    break;
+                case "FileDelete":
+                    this.FileDelete();
+                    break;
+                default:
                     break;
             }
         }
@@ -287,6 +292,33 @@ namespace CNVP.WebSite.user
 
             string str = JsonHelper.EasyGridTable(dt, easyGrid_Sort, recordCount);
             Response.Write(str);
+            Response.End();
+        }
+        #endregion
+
+        #region 删除 附件信息
+        /// <summary>
+        /// 删除 附件信息
+        /// </summary>
+        private void FileDelete()
+        {
+            string appGuid = Request.Params["appGuid"];
+            string sourceType = Request.Params["sourceType"];
+
+            Model.Source source = new Model.Source();
+            Hashtable ht = new Hashtable();
+            ht.Add("AppGuid", appGuid);
+            ht.Add("SourceType", sourceType);
+
+            int num = source.Delete(ht);
+            if (num > 0)
+            {
+                Response.Write("{\"result\":\"1\"}");
+            }
+            else
+            {
+                Response.Write("{\"result\":\"0\"}");
+            }
             Response.End();
         }
         #endregion

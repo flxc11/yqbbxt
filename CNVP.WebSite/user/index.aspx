@@ -14,6 +14,11 @@
     <script src="/js/jquery.easyui.min.js"></script>
     <script src="/js/easyui-lang-zh_CN.js"></script>
     <script src="/js/cnvp.js"></script>
+    <style>
+        .scwspan1 {
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <form id="ff" name="ff" action="?Action=Application" runat="server" enctype="multipart/form-data">
@@ -29,6 +34,7 @@
     			</a>
     		</div>
     	</div>
+
     </div>
     <div class="main-l">
 		<!--#include file="/control/userleft.html" -->
@@ -158,11 +164,11 @@
                         <div class="control-group">
                             <label for="in-out" class="control-label">紧急联系人传真：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="EmergencyFax" runat="server" CssClass="app-input easyui-validatebox" data-options="required:true,missingMessage:'请输入紧急联系人传真'"></asp:TextBox>
+                                <asp:TextBox ID="EmergencyFax" runat="server" CssClass="app-input"></asp:TextBox>
                             </div>
                             <label for="in-out" class="control-label">紧急联系人邮件：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="RmergencyEmail" runat="server" CssClass="app-input easyui-validatebox" data-options="required:true,missingMessage:'请输入紧急联系人邮件'"></asp:TextBox>
+                                <asp:TextBox ID="RmergencyEmail" runat="server" CssClass="app-input"></asp:TextBox>
                             </div>
                         </div>
                         <div class="control-group">
@@ -203,66 +209,68 @@
                         </div>
                     </div>
                     <div class="control-group">
-                            <a href="javascript:void(0)" class="btn-submit" onclick="submitForm()">提交申报</a>
-                            <a href="javascript:void(0)" class="btn-submit" onclick="javascript:history.go(-1)">返　　回</a>
+                        <a href="javascript:void(0)" class="btn-submit" onclick="submitForm('Save')">保存</a>
+                        <a href="javascript:void(0)" class="btn-submit" onclick="submitForm('Application')">提交申报</a>
+                        <a href="javascript:void(0)" class="btn-submit" onclick="javascript:history.go(-1)">返　　回</a>
                     </div>
+                    <div class="control-group" style="color: red">点击“保存”按钮，申请单暂不提交给管理员，下次可继续修改；点击“提交申报”按钮，直接把申报单提交至管理员。</div>
                 </div>
                 <div class="cnvp-tab-panle cnvp-tabs-hide">
                     <div class="table-1 scf" id="scFile0">
                         <div class="control-group">
                             <label for="in-out" class="control-label2">散装货物运输名称：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="GoodsName" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入散装货物运输名称'" novalidate=true></asp:TextBox><span class="scwspan1">*</span>
+                                <asp:TextBox ID="GoodsName" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入散装货物运输名称'" novalidate=true value=""></asp:TextBox><span class="scwspan1">*</span>
                             </div>
                         </div>
                         <div class="control-group">
                             <label for="in-out" class="control-label2">托运人：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="Shipper" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入托运人'" novalidate=true></asp:TextBox><span class="scwspan1">*</span>
+                                <asp:TextBox ID="Shipper" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入托运人'" novalidate=true value=""></asp:TextBox><span class="scwspan1">*</span>
                             </div>
                             <label for="in-out" class="control-label2">运输单证编号：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="TransportDocNo" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入运输单证编号'" novalidate=true></asp:TextBox><span class="scwspan1">*</span>
+                                <asp:TextBox ID="TransportDocNo" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入运输单证编号'" novalidate=true value=""></asp:TextBox><span class="scwspan1">*</span>
                             </div>
                         </div>
                         <div class="control-group">
                             <label for="in-out" class="control-label2">收货人：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="Consignee" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入收货人'" novalidate=true></asp:TextBox><span class="scwspan1">*</span>
+                                <asp:TextBox ID="Consignee" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入收货人'" novalidate=true value=""></asp:TextBox><span class="scwspan1">*</span>
                             </div>
                             <label for="in-out" class="control-label2">承运人：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="Carrier" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入承运人'" novalidate=true></asp:TextBox><span class="scwspan1">*</span>
+                                <asp:TextBox ID="Carrier" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入承运人'" novalidate=true value=""></asp:TextBox><span class="scwspan1">*</span>
                             </div>
                         </div>
                         <div class="control-group">
                             <label for="in-out" class="control-label2">运输工具的名称/方式：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="TransPort" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入运输工具的名称/方式'" novalidate=true></asp:TextBox><span class="scwspan1">*</span>
+                                <asp:TextBox ID="TransPort" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入运输工具的名称/方式'" novalidate=true value=""></asp:TextBox><span class="scwspan1">*</span>
                             </div>
                             <label for="in-out" class="control-label2">指南或其他事项：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="Guide" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入指南或其他事项'" novalidate=true></asp:TextBox><span class="scwspan1">*</span>
+                                <asp:TextBox ID="Guide" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入指南或其他事项'" novalidate=true value=""></asp:TextBox><span class="scwspan1">*</span>
                             </div>
                         </div>
                         <div class="control-group">
                             <label for="in-out" class="control-label2">出发港口/地点：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="HomePort" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入出发港口/地点'" novalidate=true></asp:TextBox><span class="scwspan1">*</span>
+                                <asp:TextBox ID="HomePort" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入出发港口/地点'" novalidate=true value=""></asp:TextBox><span class="scwspan1">*</span>
                             </div>
                             <label for="in-out" class="control-label2">目的港口/地点：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="DestinationPort" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入目的港口/地点'" novalidate=true></asp:TextBox><span class="scwspan1">*</span>
+                                <asp:TextBox ID="DestinationPort" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入目的港口/地点'" novalidate=true value=""></asp:TextBox><span class="scwspan1">*</span>
                             </div>
                         </div>
                         <div class="control-group">
                             <label for="in-out" class="control-label2">货物一般性的描述：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="Description" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入货物一般性的描述'" novalidate=true></asp:TextBox><span class="scwspan1">*</span>
+                                <asp:TextBox ID="Description" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入货物一般性的描述'" novalidate=true value=""></asp:TextBox><span class="scwspan1">*</span>
                             </div>
                             <label for="in-out" class="control-label2">总重：</label>
                             <div class="controls controls-inline">
-                                <asp:TextBox ID="TotalWeight" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入总重'" novalidate=true></asp:TextBox>
+                                <asp:TextBox ID="TotalWeight" runat="server" CssClass="easyui-validatebox app-input" data-options="required:true,missingMessage:'请输入总重'" novalidate=true value=""></asp:TextBox>
                             </div>
                         </div>
                         <div class="control-group">
@@ -362,7 +370,7 @@
             message: '内容中不能包含逗号'
         }
     });
-    function submitForm(){
+    function submitForm(action) {
         var rslt1 = /^\s*$/.test($("#Declarer").val());
         var rslt2 = /^\s*$/.test($("#Ship").val());
         if( rslt1 && rslt2 ) {
@@ -382,14 +390,26 @@
                 return false;
             }
         }
+        if ($("input[type='radio'][name='IO']:checked").val() == "1") {
+            var _num = 0;
+            $("input[novalidate=true]").each(function(i, v) {
+                if (/^\s*$/.test($(v).val())) {
+                    _num += 1;
+                }
+            })
+            if (_num > 0) {
+                $.messager.alert("信息", "安全适运申报单填写不规范！");
+                return false;
+            }
+        }
         if ($("#ff").form("validate")) {
             function doSubmit() {
-                $("#ff").attr("action", "index.aspx?Action=Application");
+                $("#ff").attr("action", "index.aspx?Action=" + action);
                 $("#ff").submit();
             }
             setTimeout(doSubmit,0);
         } else {
-           $.messager.alert("信息","输入不合法，请检查后再提交！");
+            $.messager.alert("信息", "申报单或安全适运申报单填写不规范，请检查后再提交！");
         }
     }
     function addFile(id) {

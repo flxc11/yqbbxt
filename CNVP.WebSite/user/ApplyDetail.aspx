@@ -174,7 +174,7 @@
                             3、<a href="<%=mfile0_2 %>" target="_blank">配载图</a>&nbsp;&nbsp;
                             <%=mfile0_3 %>
                             <%=mfile0_4 %>
-                            6、<a href="other.aspx?AppGuid=<%=applyGuid %>&imgtype=1" target="_blank">其它</a>
+                            <%=imgsrc1 %>
                         </div>
                     </div>
                     
@@ -267,7 +267,7 @@
                             <%=scwmfile1 %>
                             <%=scwmfile2 %>
                             <%=scwmfile3 %>
-                            <%=scwmfile4 %>
+                            <%=imgsrc2 %>
                         </div>
                     </div>
                 </div>

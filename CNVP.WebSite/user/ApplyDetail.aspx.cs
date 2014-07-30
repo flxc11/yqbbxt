@@ -12,7 +12,7 @@ namespace CNVP.WebSite.user
 {
     public partial class ApplyDetail : UserPage
     {
-        public string applyGuid, applyId, scwId, mfile0_0, mfile0_1, mfile0_2, mfile0_3, mfile0_4, scwmfile1, scwmfile2, scwmfile3, scwmfile4, strIO, spyj,spyj1, printApply, printScw, printNotice = string.Empty;
+        public string applyGuid, applyId, scwId, mfile0_0, mfile0_1, mfile0_2, mfile0_3, mfile0_4, mfile0_5, scwmfile1, scwmfile2, scwmfile3, scwmfile4, strIO, spyj, spyj1, printApply, printScw, printNotice, imgsrc1, imgsrc2 = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -69,11 +69,36 @@ namespace CNVP.WebSite.user
                     {
                         mfile0_3 = "4、<a href=\"" + _fuplo.GetImgUrl("mfile0_3", guid) + "\" target=\"_blank\">进/出港申报委托书</a>&nbsp;&nbsp;";
                     }
-                    if (_fuplo.GetImgUrl("mfile0_3", guid) != "")
+                    if (_fuplo.GetImgUrl("mfile0_4", guid) != "")
                     {
                         mfile0_4 = "5、<a href=\"" + _fuplo.GetImgUrl("mfile0_4", guid) + "\" target=\"_blank\">保险证书类型</a>&nbsp;&nbsp;";
                     }
-                    if (_fuplo.GetImgUrl("scwmfile0_1", guid) != "")
+                    //显示其它类型的附件
+                    //申报单
+                    string strsql1 = "select * from cnvp_source where appGuid='" + guid + "' and sourcetype like 'mfile0_%' and substring(sourcetype,8,2) > 4";
+                    Model.Source source = new Model.Source();
+                    DataTable dt = DataFactory.GetInstance().ExecuteTable(strsql1);
+                    if (dt.Rows.Count > 0)
+                    {
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            this.imgsrc1 += "<a href='" + dt.Rows[i]["SourceUrl"] + "' target='_blank'>其它" + (i + 1) + "</a>&nbsp;&nbsp;";
+                        }
+                    }
+
+                    // 适运单
+                    string strsql2 = "select * from cnvp_source where appGuid='" + guid + "' and sourcetype like 'scwmfile0_%' and substring(sourcetype,11,2) > 3";
+                    Model.Source source1 = new Model.Source();
+                    DataTable dt1 = DataFactory.GetInstance().ExecuteTable(strsql2);
+                    if (dt1.Rows.Count > 0)
+                    {
+                        for (int i = 0; i < dt1.Rows.Count; i++)
+                        {
+                            this.imgsrc2 += "<a href='" + dt1.Rows[i]["SourceUrl"] + "' target='_blank'>其它" + (i + 1) + "</a>&nbsp;&nbsp;";
+                        }
+                    }
+
+                    if (_fuplo.GetImgUrl("scwmfile0_1", guid) != string.Empty)
                     {
                         scwmfile1 = "<a href=\"" + _fuplo.GetImgUrl("scwmfile0_1", guid) + "\" target=\"_blank\">水份含量和适运水份极限证书</a>&nbsp;&nbsp;";
                     }
@@ -85,10 +110,10 @@ namespace CNVP.WebSite.user
                     {
                         scwmfile3 = "<a href=\"" + _fuplo.GetImgUrl("scwmfile0_3", guid) + "\" target=\"_blank\">委托书</a>&nbsp;&nbsp;";
                     }
-                    if (_fuplo.GetImgUrl("scwmfile0_4", guid) != "")
-                    {
-                        scwmfile4 = "<a href=\"other.aspx?AppGuid=" + applyGuid + "\" target=\"_blank\">其它</a>";
-                    }
+                    //if (_fuplo.GetImgUrl("scwmfile0_4", guid) != "")
+                    //{
+                    //    scwmfile4 = "<a href=\"other.aspx?AppGuid=" + applyGuid + "\" target=\"_blank\">其它</a>";
+                    //}
 
                     #region 审批意见
                     DataTable dts1 = DataFactory.GetInstance().ExecuteTable("select * from CNVP_accredit where AppGuid='" + guid + "'");

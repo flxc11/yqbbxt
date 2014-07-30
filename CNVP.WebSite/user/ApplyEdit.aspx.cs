@@ -23,7 +23,7 @@ namespace CNVP.WebSite.user
                     EditApply(0);
                     break;
                 case "Edit":
-                    EditApply(2);
+                    Edit();
                     break;
             }
             if (!IsPostBack)
@@ -35,7 +35,7 @@ namespace CNVP.WebSite.user
                 if (!string.IsNullOrEmpty(guid))
                 {
                     CNVP.UI.Application _apply = new UI.Application();
-                    if (_apply.ApplyState(guid) != "2")
+                    if (_apply.ApplyState(guid) != "2" && _apply.ApplyState(guid) != "4")
                     {
                         MessageBox.ShowMessage("申请单当前状态不允许编辑！", "ApplicationList.aspx?State=03c49c0a");
 
@@ -139,6 +139,65 @@ namespace CNVP.WebSite.user
             appli.Id = Convert.ToInt32(applyId);
             appli.IO = Convert.ToInt32(IO.SelectedValue);
             appli.AppState = editState;
+
+            //安全适运单
+            if (appli.IO == 1)
+            {
+                CNVP.UI.Application _apply = new UI.Application();
+                scw.UpdateModel();
+                //scw.ExatrCertificate = _apply.GetCheck(ExatrCertificate, ",");
+                scw.GoodsGroup = GoodsGroup.SelectedValue;
+                scw.Id = Convert.ToInt32(scwId);
+            }
+
+
+            //附件上传
+            source.AppGuid = applyGuid;
+            //source.CreateTime = DateTime.Now;
+            source.SourceUrl = upload.UploadPic();
+            source.UserId = Convert.ToInt32(UserLoginInfo.UserLoginID);
+
+            //散装货物上传
+            //bulk.Id = Request.Params["bulkId"];
+            bulk.BfGoodsName = Request.Params["BfGoodsName"];
+            bulk.BfGoodsGroup = Request.Params["BfGoodsGroup"];
+            bulk.Class = Request.Params["Class"];
+            bulk.DangerousNo = Request.Params["DangerousNo"];
+            bulk.BfTotalWeight = Request.Params["BfTotalWeight"];
+            bulk.DischargingPort = Request.Params["DischargingPort"];
+            bulk.Position = Request.Params["Position"];
+            bulk.Remark = Request.Params["Remark"];
+
+            CNVP.Data.Application bll = new CNVP.Data.Application();
+            bll.Edit(appli, scw, source, bulk, bulkId);
+
+            MessageBox.ShowMessage("修改提交成功！", "ApplicationList.aspx?State=" + appState + "&page=" + appPage);
+        }
+        #endregion
+
+        #region 编辑申请单
+        /// <summary>
+        /// 编辑申请单
+        /// </summary>
+        private void Edit()
+        {
+            string applyId = Request.Params["applyId"];
+            string scwId = Request.Params["scwId"];
+            string bulkId = Request.Params["bulkId"]; //散装货物表ID 不能传入string类型，新定义一个字段存入ID
+            string applyGuid = Request.Params["applyGuid"];
+            string appState = Request.Params["appState"];
+            string appPage = Request.Params["appPage"];
+            CNVP.UI.FileUpload upload = new UI.FileUpload();
+            Model.Application appli = new Model.Application();
+            Model.SCW scw = new Model.SCW();
+            Model.Source source = new Model.Source();
+            Model.BulkFreight bulk = new Model.BulkFreight();
+
+            //项目申请单
+            appli.UpdateModel();
+            appli.Id = Convert.ToInt32(applyId);
+            appli.IO = Convert.ToInt32(IO.SelectedValue);
+            //appli.AppState = editState;
 
             //安全适运单
             if (appli.IO == 1)

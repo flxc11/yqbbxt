@@ -149,7 +149,7 @@
                             3、<a href="<%=mfile0_2 %>" target="_blank">配载图</a>&nbsp;&nbsp;
                             <%=mfile0_3 %>
                             <%=mfile0_4 %>
-                            6、<a href="/user/other.aspx?AppGuid=<%=applyGuid %>&imgtype=1" target="_blank">其它</a>
+                            <%=imgsrc1 %>
                         </div>
                     </div>
                 <div class="control-group">
@@ -236,16 +236,13 @@
                             <div class="controls controls-inline">
                                 <asp:Label ID="ParticularNature" runat="server"></asp:Label>
                             </div>
-                            <label for="in-out" class="control-label2">额外证书：</label>
-                            <div class="controls controls-inline">
-                                <asp:Label ID="ExatrCertificate" runat="server"></asp:Label>
-                            </div>
                         </div>
-                        <div class="control-group">
-                            <label for="in-out" class="control-label2">额外证书其他说明：</label>
-                            <div class="controls controls-inline">
-                                <asp:Label ID="ExatrCertificateDec" runat="server"></asp:Label>
-                            </div>
+                        <div class="control-group" style="text-align:left;padding-left:79px;">
+                            额外证书：
+                            <%=scwmfile1 %>
+                            <%=scwmfile2 %>
+                            <%=scwmfile3 %>
+                            <%=imgsrc2 %>
                         </div>
                     </div>
                 </div>

@@ -9,9 +9,13 @@ using System.Web.UI.WebControls;
 
 namespace CNVP.WebSite.admin
 {
+    using System.Data;
+
+    using CNVP.Framework.DataAccess;
+
     public partial class ApplyDetail : AdminPage
     {
-        public string _appState, appPage, applyGuid, mfile0_0, mfile0_1, mfile0_2, mfile0_3, mfile0_4, scwmfile1, scwmfile2, scwmfile3, scwmfile4, strIO = string.Empty;
+        public string _appState, appPage, applyGuid, mfile0_0, mfile0_1, mfile0_2, mfile0_3, mfile0_4, scwmfile1, scwmfile2, scwmfile3, scwmfile4, strIO, imgsrc1, imgsrc2 = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
             string Action = Request.Params["Action"];
@@ -68,6 +72,32 @@ namespace CNVP.WebSite.admin
                     scwmfile2 = _fuplo.GetImgUrl("scwmfile0_2", guid);
                     scwmfile3 = _fuplo.GetImgUrl("scwmfile0_3", guid);
                     scwmfile4 = _fuplo.GetImgUrl("scwmfile0_4", guid);
+
+                    //显示其它类型的附件
+                    //申报单
+                    string strsql1 = "select * from cnvp_source where appGuid='" + guid + "' and sourcetype like 'mfile0_%' and substring(sourcetype,8,2) > 4";
+                    Model.Source source = new Model.Source();
+                    DataTable dt3 = DataFactory.GetInstance().ExecuteTable(strsql1);
+                    if (dt3.Rows.Count > 0)
+                    {
+                        for (int i = 0; i < dt3.Rows.Count; i++)
+                        {
+                            this.imgsrc1 += "<a href='" + dt3.Rows[i]["SourceUrl"] + "' target='_blank'>其它" + (i + 1) + "</a>&nbsp;&nbsp;";
+                        }
+                    }
+
+                    // 适运单
+                    string strsql2 = "select * from cnvp_source where appGuid='" + guid + "' and sourcetype like 'scwmfile0_%' and substring(sourcetype,11,2) > 3";
+                    Model.Source source1 = new Model.Source();
+                    DataTable dt4 = DataFactory.GetInstance().ExecuteTable(strsql2);
+                    if (dt4.Rows.Count > 0)
+                    {
+                        for (int i = 0; i < dt4.Rows.Count; i++)
+                        {
+                            this.imgsrc2 += "<a href='" + dt4.Rows[i]["SourceUrl"] + "' target='_blank'>其它" + (i + 1) + "</a>&nbsp;&nbsp;";
+                        }
+                    }
+
                     if (_fuplo.GetImgUrl("mfile0_3", guid) != "")
                     {
                         mfile0_3 = "4、<a href=\"" + _fuplo.GetImgUrl("mfile0_3", guid) + "\" target=\"_blank\">进/出港申报委托书</a>&nbsp;&nbsp;";
@@ -117,11 +147,66 @@ namespace CNVP.WebSite.admin
             Model.Application apply = new Model.Application();
             Model.Accredit accredit = new Model.Accredit();
 
+            Hashtable ht = new Hashtable();
+            ht.Add("Guid", guid);
+            Model.Application appli = Model.Application.Instance.GetModelById(ht);
+            Model.SCW scw = new Model.SCW();
+            if (appli.IO == 1)
+            {
+                Model.PrintNum printNum = new Model.PrintNum();
+                using (DataTable dt = CNVP.Framework.DataAccess.DataFactory.GetInstance().ExecuteTable("select max(ApplyNum) as maxA from CNVP_PrintNum"))
+                {
+                    if (dt != null && dt.Rows.Count > 0)
+                    {
+                        int maxANum = Convert.ToInt32(dt.Rows[0]["maxA"].ToString()) + 1;
+                        printNum.Update("ApplyNum=" + maxANum, string.Empty);
+                        apply.Update("PrintNum=" + maxANum, " and Guid='" +
+                    guid + "'");
+                    }
+                }
+                using (DataTable dt1 = CNVP.Framework.DataAccess.DataFactory.GetInstance().ExecuteTable("select max(ScwNum) as maxS from CNVP_PrintNum"))
+                {
+                    if (dt1 != null && dt1.Rows.Count > 0)
+                    {
+                        int maxSNum = Convert.ToInt32(dt1.Rows[0]["maxS"].ToString()) + 1;
+                        printNum.Update("ScwNum=" + maxSNum, string.Empty);
+                        scw.Update("PrintNum=" + maxSNum, " and AppGuid='" +
+                    guid + "'");
+                    }
+                }
+            }
+            else
+            {
+                Model.PrintNum printNum = new Model.PrintNum();
+                using (DataTable dt = CNVP.Framework.DataAccess.DataFactory.GetInstance().ExecuteTable("select max(ApplyNum) as maxA from CNVP_PrintNum"))
+                {
+                    if (dt != null && dt.Rows.Count > 0)
+                    {
+                        int maxANum = Convert.ToInt32(dt.Rows[0]["maxA"].ToString()) + 1;
+                        printNum.Update("ApplyNum=" + maxANum, string.Empty);
+                        apply.Update("PrintNum=" + maxANum, " and Guid='" +
+                    guid + "'");
+                    }
+                }
+            }
+
             //修改申请单状态
             if (!string.IsNullOrEmpty(guid))
             {
                 apply.Update("AppState=" + applyState, " and Guid='" +
                     guid + "'");
+                if (_appState == "1")
+                {
+                    if (appli.IO == 1)
+                    {
+                        strIO = "出港";
+                    }
+                    else
+                    {
+                        strIO = "进港";
+                        Panel1.Visible = false;
+                    }
+                }
             }
 
             //增加或修改审批意见

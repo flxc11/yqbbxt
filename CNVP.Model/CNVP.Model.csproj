@@ -41,6 +41,7 @@
     <Compile Include="Admin.cs" />
     <Compile Include="Application.cs" />
     <Compile Include="BulkFreight.cs" />
+    <Compile Include="PrintNum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SCW.cs" />
     <Compile Include="Source.cs" />

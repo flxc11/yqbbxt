@@ -56,6 +56,16 @@ namespace CNVP.Config
             }
         }
         /// <summary>
+        /// 上传文件最大值
+        /// </summary>
+        public static string FileMaxLength
+        {
+            get
+            {
+                return ConfigHelper.GetValue("FileMaxLength");
+            }
+        }
+        /// <summary>
         /// 数据表前缀
         /// </summary>
         public static string Prefix

@@ -76,8 +76,21 @@ namespace CNVP.Data
                 string[] picUrl = picName[i].Replace("|#|", "|").Split(new char[] { '|' });
                 source1.SourceUrl = picUrl[1];
                 source1.SourceType = picUrl[0];
-                source1.Update("SourceUrl='" + source1.SourceUrl + "'", " and AppGuid='" +
-                    source1.AppGuid + "' and SourceType='" + source1.SourceType + "'");
+                Hashtable ht = new Hashtable();
+                ht.Add("AppGuid", source1.AppGuid);
+                ht.Add("SourceType", source1.SourceType);
+                if (source1.IsExist(ht))
+                {
+                    source1.Update(
+                        "SourceUrl='" + source1.SourceUrl + "'",
+                        " and AppGuid='" + source1.AppGuid + "' and SourceType='" + source1.SourceType + "'");
+                }
+                else
+                {
+                    source1.CreateTime = DateTime.Now;
+                    source1.Insert();
+                }
+                
             }
 
             //循环插入散装货物列表

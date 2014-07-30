@@ -78,7 +78,7 @@
         height: 'auto',
         nowrap: false,
         striped: true,  //是否显示斑马线效果
-        url: '/user/userjson.aspx',
+        url: '/admin/adminjson.aspx',
         queryParams: {
             action: 'GetApplyList',
             easyGrid_Sort: fields,

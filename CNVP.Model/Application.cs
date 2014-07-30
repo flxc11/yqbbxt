@@ -387,5 +387,22 @@ namespace CNVP.Model
                 this._RmergencyEmail = value;
             }
         }
+        private string _PrintNum = null;
+        /// <summary>  
+        /// 打印序号  
+        /// </summary>  
+        /// <returns></returns>  
+        [Description("打印序号")]
+        public string PrintNum
+        {
+            get
+            {
+                return this._PrintNum;
+            }
+            set
+            {
+                this._PrintNum = value;
+            }
+        }
     }
 }

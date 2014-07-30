@@ -1,0 +1,10 @@
+IP地址：192.168.0.40
+时  间：2014-07-14 14:11:07
+内  容：找不到相关文件D:\工作文件\工作文件夹\14年\6月份\[14-06-06]乐清海事局\CNVP.WebSite\Template\SolidBulk.html，错误详细：System.IO.FileNotFoundException: 未能找到文件“D:\工作文件\工作文件夹\14年\6月份\[14-06-06]乐清海事局\CNVP.WebSite\Template\SolidBulk.html”。
+文件名:“D:\工作文件\工作文件夹\14年\6月份\[14-06-06]乐清海事局\CNVP.WebSite\Template\SolidBulk.html”
+   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy)
+   在 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   在 CNVP.Framework.Utils.FileUtils.GetEncoding(String FileName) 位置 d:\工作文件\工作文件夹\14年\6月份\[14-06-06]乐清海事局\CNVP.Framework\Utils\FileUtils.cs:行号 97
+   在 CNVP.Framework.Utils.FileUtils.ReadFile(String FileName) 位置 d:\工作文件\工作文件夹\14年\6月份\[14-06-06]乐清海事局\CNVP.Framework\Utils\FileUtils.cs:行号 139
+********************************************************************

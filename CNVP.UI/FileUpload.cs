@@ -12,6 +12,7 @@ namespace CNVP.UI
     {
         public string UploadPic()
         {
+            string url = HttpContext.Current.Request.Url.LocalPath; 
             string TempPath = "/UploadFile/" + DateTime.Now.ToString("yyyyMMdd");
             string str = string.Empty;
             if (HttpContext.Current.Request.Files.Count != 0)
@@ -29,12 +30,22 @@ namespace CNVP.UI
                     //}
                     if (file.ContentLength > 0 && (!string.IsNullOrEmpty(file.FileName)))
                     {
-                        if (!Directory.Exists(HttpContext.Current.Server.MapPath(TempPath)))
+                        if (file.ContentLength > Convert.ToInt32(CNVP.Config.UIConfig.FileMaxLength))
                         {
-                            Directory.CreateDirectory(HttpContext.Current.Server.MapPath(TempPath));
+                            //HttpContext.Current.Response.Write("<script type='text/javascript'>window.alert('上传失败，每个上传文件不能超过5M');</script>");
+                            //HttpContext.Current.Response.Redirect(url);
+                            MessageBox.ShowMessage("上传失败，每个上传文件不能超过5M", url);
                         }
-                        file.SaveAs(System.Web.HttpContext.Current.Server.MapPath(TempPath + "/" + filepath + fileExtension));
-                        str += up_name + "|#|" + TempPath + "/" + filepath + fileExtension + "|$|";
+                        else
+                        {
+                            if (!Directory.Exists(HttpContext.Current.Server.MapPath(TempPath)))
+                            {
+                                Directory.CreateDirectory(HttpContext.Current.Server.MapPath(TempPath));
+                            }
+                            file.SaveAs(System.Web.HttpContext.Current.Server.MapPath(TempPath + "/" + filepath + fileExtension));
+                            str += up_name + "|#|" + TempPath + "/" + filepath + fileExtension + "|$|";
+                        }
+                        
                     }
 
                     Thread.Sleep(100);

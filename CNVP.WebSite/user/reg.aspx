@@ -282,7 +282,7 @@
 			    <div class="control-group">
 			      <label for="email" class="control-label">登录账号：</label>
 			      <div class="controls controls-inline">
-                      <asp:TextBox ID="UserName" CssClass="easyui-validatebox textbox" runat="server" data-options="required:true,missingMessage:'请最少输入5个数字和字母组合或者2-6个汉字'" validType="Composite_validation[/^[\u4E00-\u9FA5]{2,6}$|^[A-Za-z0-9]{5,15}$/,'用户名不合法（最少输入5个数字和字母）','该用户名已存在！']" ></asp:TextBox>
+                      <asp:TextBox ID="UserName" CssClass="easyui-validatebox textbox" runat="server" data-options="required:true,missingMessage:'请最少输入5个数字和字母组合或者2-6个汉字'" validType="Composite_validation[/^[\u4E00-\u9FA5]{2,6}$|^[A-Za-z0-9]{5,15}$/,'用户名不合法（请最少输入5个数字和字母组合或者2-6个汉字）','该用户名已存在！']" ></asp:TextBox>
 			      </div>
 			    </div>
 			    <div class="control-group">
@@ -290,6 +290,7 @@
 			      <div class="controls controls-inline">
 			        <asp:TextBox ID="UserPass" CssClass="easyui-validatebox textbox" runat="server" data-options="required:true,missingMessage:'请输入登录密码'" TextMode="Password"></asp:TextBox>
 			      </div>
+
 			    </div>
 			    <div class="control-group">
 			      <label for="checkpassword" class="control-label">确认密码：</label>
@@ -341,7 +342,6 @@
 		Composite_validation: {  //验证用户名是否存在
 			validator: function (value, param) {
 			    var M_reg = new RegExp(param[0]);
-			    console.log(M_reg);
 	            value = value.toLowerCase();
 	            if (!M_reg.test(value)) {
 	            	$.fn.validatebox.defaults.rules.Composite_validation.message = param[1];

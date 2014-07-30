@@ -45,6 +45,9 @@ namespace CNVP.WebSite.admin
                 case "Export":
                     Export();
                     break;
+                case "GetApplyList":
+                    GetApplyList();
+                    break;
                 default:
                     break;
             }
@@ -237,6 +240,53 @@ namespace CNVP.WebSite.admin
                     return "待审批";
                     break;
             }
+        }
+        #endregion
+
+        #region 项目申请列表
+        /// <summary>
+        /// 项目申请列表
+        /// </summary>
+        private void GetApplyList()
+        {
+            string pageIndex = Request.Params["Page"];
+            string state = Request.Params["State"];
+            string sqlWhere = string.Empty;
+            string userId = Request.Params["userId"];
+            if (string.IsNullOrEmpty(pageIndex) || !Public.IsNumber(pageIndex))
+            {
+                pageIndex = "1";
+            }
+            string pageSize = Request.Params["Rows"];
+            if (string.IsNullOrEmpty(pageSize) || !Public.IsNumber(pageSize))
+            {
+                pageIndex = "10";
+            }
+            sqlWhere = UIConfig.Prefix + "Application where 1=1 ";
+            if (!string.IsNullOrEmpty(state) && Public.IsNumber(state))
+            {
+                sqlWhere += " and AppState=" + state;
+            }
+            else
+            {
+                sqlWhere += " and AppState<>4";
+            }
+            if (!string.IsNullOrEmpty(userId) && Public.IsNumber(userId))
+            {
+                sqlWhere += " and UserID=" + userId;
+            }
+            int recordCount = 0;
+            int pageCount = 0;
+
+            //string strSql = "select  * from " + UIConfig.Prefix + "Application order by createtime desc";
+
+            DataTable dt = DataFactory.GetInstance().ExecutePage("*",
+                sqlWhere, "Id", "Id desc", Convert.ToInt32(pageIndex), Convert.ToInt32(pageSize), ref recordCount, ref pageCount);
+            string easyGrid_Sort = Request.Params["easyGrid_Sort"];
+
+            string str = JsonHelper.EasyGridTable(dt, easyGrid_Sort, recordCount);
+            Response.Write(str);
+            Response.End();
         }
         #endregion
 

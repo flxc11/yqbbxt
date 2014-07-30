@@ -64,7 +64,7 @@
         //return document.body.clientWidth * percent ;
         return $(".main-r").width() * percent ;
     }
-    var tips = ["待审批申报单","已审批申报单", "材料补正申报单", "不予备案申报单", "全部申报单列表"];
+    var tips = ["待审批申报单","已审批申报单", "材料补正申报单", "不予备案申报单", "待提交申报单", "全部申报单列表"];
     var _state = decrypt(encodeURI($.query.get("State")));
     var fields = "Id,Guid,IO,ShipName,Saillings,Operator,StartPort,ArrivedTime,WorkBerth,AppState";
     var flag = true;
@@ -75,7 +75,7 @@
     // var max = Math.ceil(total/options.pageSize);
     //var page = $.query.get("page");
     $('#tb').datagrid({
-                title:'当前位置：申报管理 > ' + tips[_state != "" && _state != "undefined" && _state != "%20" ? _state : 4],
+                title:'当前位置：申报管理 > ' + tips[_state != "" && _state != "undefined" && _state != "%20" ? _state : 5],
                 width: 'auto',
                 height: 'auto',
                 nowrap: false,
@@ -129,12 +129,14 @@
                                 return   "材料补正";
                             } else if (row.AppState == "3") {
                                 return   "不予备案";
+                            } else if (row.AppState == "4") {
+                                return   "待提交";
                             };
                         }
                     },
                     {title:'操作',field:'xxx',width:getWidth(0.05),align:'center',
                         formatter: function(value,row,index){
-                            if (row.AppState == "2") {
+                            if (row.AppState == "2" || row.AppState == "4") {
                                 return "<a href='ApplyEdit.aspx?guid=" + row.Guid + "&page=" + $('#tb').datagrid('getPager').data("pagination").options.pageNumber + "&State=" + $.query.get("State") + "''>编辑</a>" ;
                             } else {
                                 return "<a href='ApplyDetail.aspx?guid=" + row.Guid + "&page=" + $('#tb').datagrid('getPager').data("pagination").options.pageNumber+ "&State=" + $.query.get("State") + "'>查看</a>" ;
